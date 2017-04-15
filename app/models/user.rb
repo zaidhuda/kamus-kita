@@ -7,6 +7,8 @@ class User < ApplicationRecord
          :rememberable, :trackable, :validatable
 
   has_many :definitions
+  validates_presence_of :handle
+  validates_length_of :handle, minimum: 4, maximum: 32
 
   def handle
     super || handle_from_email

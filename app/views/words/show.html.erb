@@ -1,1 +1,7 @@
-<%= render 'words/word', word: @word %>
+<% @definitions.each do |definition| %>
+  <div class="callout">
+    <h1><%= link_to definition.original_word, word_path(@word) %></h1>
+
+    <%= render 'definitions/definition', definition: definition %>
+  </div>
+<% end %>
