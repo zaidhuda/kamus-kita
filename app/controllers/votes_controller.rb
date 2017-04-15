@@ -5,7 +5,7 @@ class VotesController < ApplicationController
   def like
     respond_to do |format|
       if @definition.liked_by current_user
-        format.html { redirect_to @definition, notice: 'Definition was successfully updated.' }
+        format.html { redirect_to @definition, notice: 'Definition was liked.' }
         format.json { render :show, status: :ok, location: @definition }
       else
         format.html { render :edit }
@@ -17,7 +17,7 @@ class VotesController < ApplicationController
   def dislike
     respond_to do |format|
       if @definition.disliked_by current_user
-        format.html { redirect_to @definition, notice: 'Definition was successfully updated.' }
+        format.html { redirect_to @definition, notice: 'Definition was disliked.' }
         format.json { render :show, status: :ok, location: @definition }
       else
         format.html { render :edit }

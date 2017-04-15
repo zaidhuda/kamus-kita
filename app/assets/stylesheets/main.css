@@ -1,5 +1,5 @@
 main {
-  padding-top: 50px;
+  padding-top: 15px;
 }
 
 .words-list {
@@ -11,4 +11,8 @@ main {
   .words-list {
     column-count: 2;
   } 
+}
+
+.clear {
+  clear: both;
 }

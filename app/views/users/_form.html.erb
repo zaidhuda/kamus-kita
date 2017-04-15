@@ -1,0 +1,28 @@
+<%= form_for(user) do |f| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="large-12 columns">
+      <%= f.label :handle %>
+      <em class="hint">4 to 32 characters</em>
+      <%= f.text_field :handle, autocomplete: :off, pattern: '.{4,32}', required: true %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-12 columns">
+      <%= f.submit 'Submit', class: 'button' %>
+      <%= link_to 'Cancel', root_path, class: 'button secondary' %>
+    </div>
+  </div>
+<% end %>

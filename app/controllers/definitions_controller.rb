@@ -53,6 +53,6 @@ class DefinitionsController < ApplicationController
     end
 
     def definition_params
-      params.require(:definition).permit(:word_word, :definition, :example)
+      params.require(:definition).permit(:original_word, :definition, :example)
     end
 end

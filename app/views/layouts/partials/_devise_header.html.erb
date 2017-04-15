@@ -8,20 +8,14 @@
               <a href="<%= root_path %>"><strong>Kamus</strong>Kita</a>
             </div>
             <div class="user-actions">
-              <%= link_to 'Handle', edit_user_path(current_user), class: 'small button secondary' %>
+              <% if controller_name == 'users' %>
+                <%= link_to 'Account', edit_user_registration_path, class: 'small button secondary' %>
+              <% else %>
+                <%= link_to 'Handle', edit_user_path(current_user), class: 'small button secondary' %>
+              <% end %>
               <%= link_to 'Logout', destroy_user_session_path, class: 'small button secondary', method: :delete %>
             </div>
             <div class="clear"></div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="small-9 medium-10 columns">
-            <form  action="/search">
-              <input type="text" name="q" placeholder="Search">
-            </form>
-          </div>
-          <div class="small-3 medium-2 columns">
-            <%= link_to 'New', new_definition_path, class: 'button block' %>
           </div>
         </div>
       </div>
@@ -40,13 +34,6 @@
               <%= link_to 'Login', new_user_session_path, class: 'small button' %>
             </div>
             <div class="clear"></div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="small-12 columns">
-            <form  action="/search">
-              <input type="text" name="q" placeholder="Search">
-            </form>
           </div>
         </div>
       </div>

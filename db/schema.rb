@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170415111916) do
+ActiveRecord::Schema.define(version: 20170415180659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20170415111916) do
     t.boolean  "hidden",           default: false
     t.integer  "likes_counter",    default: 0,     null: false
     t.integer  "dislikes_counter", default: 0,     null: false
+    t.string   "original_word"
     t.index ["hidden"], name: "index_definitions_on_hidden", using: :btree
     t.index ["user_id"], name: "index_definitions_on_user_id", using: :btree
     t.index ["word_id", "dislikes_counter"], name: "index_definitions_on_word_id_and_dislikes_counter", using: :btree

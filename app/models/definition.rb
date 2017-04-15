@@ -3,11 +3,9 @@ class Definition < ApplicationRecord
   belongs_to :word
   has_many :votes
 
-  attr_accessor :word_word
-
   before_validation :find_or_create_word
 
-  validates_presence_of :user_id, :word_id, :description
+  validates_presence_of :user_id, :word_id, :definition
 
   def self.best
     self.order(likes_counter: :desc).limit(1).first
@@ -15,10 +13,10 @@ class Definition < ApplicationRecord
 
   def find_or_create_word
     if new_record?
-      self.word = Word.friendly.find(word_word.downcase.parameterize)
+      self.word = Word.friendly.find(original_word.downcase.parameterize)
     end
   rescue ActiveRecord::RecordNotFound
-    self.word = Word.create!(word: word_word)
+    self.word = Word.create!(word: original_word)
   end
 
   def liked_by liker

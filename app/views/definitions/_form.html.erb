@@ -15,9 +15,9 @@
     <div class="large-12 columns">
       <%= f.label :word %>
       <% if definition.persisted? %>
-        <%= text_field_tag :word, definition.word.word, disabled: true %>
+        <%= text_field_tag :word, definition.original_word, disabled: true %>
       <% else %>
-        <%= f.text_field :word_word, autocomplete: :off, required: true %>
+        <%= f.text_field :original_word, autocomplete: :off, required: true %>
       <% end %>
     </div>
   </div>

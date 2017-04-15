@@ -9,11 +9,15 @@
   </head>
 
   <body>
-    <%= render partial: 'layouts/partials/header' %>
+    <%= render partial: 'layouts/partials/devise_header' %>
     <main>
-      <%= yield %>
+      <div class="row">
+        <div class="medium-4 medium-offset-4 columns">
+          <%= render partial: 'layouts/partials/notice' %>
+          <%= yield %>
+        </div>
+      </div>
     </main>
-    <%= render partial: 'layouts/partials/footer' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>

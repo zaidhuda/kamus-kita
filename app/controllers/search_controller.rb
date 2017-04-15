@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
   def index
-    @words = Word.where("word LIKE ?", "#{params[:q]}%")
-    @random_word = Word.find(rand(Word.ids.min..Word.ids.max))
+    @words = Word.where("word LIKE ?", "#{params[:q]}%").page params[:page]
+    @random_word = Word.offset(rand(Word.count)).first
   end
 end

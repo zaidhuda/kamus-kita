@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
+  devise_for :users, controllers: {
+    sessions: 'user/sessions',
+    registrations: 'user/registrations'
+  }
 
-  devise_for :users
+  resources :users, only: [:show, :edit, :update]
+
   get 'search', to: 'search#index'
   get 'browse', to: 'browse#index'
   resources :words, only: [:index, :show]

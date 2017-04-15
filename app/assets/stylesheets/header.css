@@ -4,7 +4,16 @@ header {
 }
 
 header .logo {
+  float: left;
   font-size: xx-large;
+}
+
+header .user-actions {
+  float: right;
+}
+
+header .user-actions .button {
+  margin: 7px 0;
 }
 
 header .logo a {

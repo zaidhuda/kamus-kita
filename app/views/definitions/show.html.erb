@@ -1,11 +1,9 @@
-<p id="notice"><%= notice %></p>
-
 <div class="callout">
-  <h1><%= link_to @definition.word.word, word_path(@definition.word) %></h1>
+  <h1><%= link_to @definition.original_word, word_path(@definition.word) %></h1>
 
   <%= render 'definitions/definition', definition: @definition %>
 </div>
 
-<% if current_user == @definition.user %>
+<% if current_user && current_user == @definition.user %>
   <%= link_to 'Edit definition', edit_definition_path(@definition), class: 'button' %>
 <% end %>
