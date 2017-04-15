@@ -1,0 +1,45 @@
+<%= form_for(definition) do |f| %>
+  <% if definition.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(definition.errors.count, "error") %> prohibited this definition from being saved:</h2>
+
+      <ul>
+      <% definition.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="large-12 columns">
+      <%= f.label :word %>
+      <% if definition.persisted? %>
+        <%= text_field_tag :word, definition.word.word, disabled: true %>
+      <% else %>
+        <%= f.text_field :word_word, autocomplete: :off, required: true %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-12 columns">
+      <%= f.label :definition %>
+      <%= f.text_area :definition, rows: 5, required: true %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-12 columns">
+      <%= f.label :example %>
+      <%= f.text_area :example, rows: 5 %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-12 columns">
+      <%= f.submit 'Submit', class: 'button' %>
+      <%= link_to 'Cancel', root_path, class: 'button secondary' %>
+    </div>
+  </div>
+<% end %>

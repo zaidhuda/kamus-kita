@@ -1,0 +1,14 @@
+<p>
+  <%= definition.definition %>
+</p>
+<p>
+  <em><%= definition.example %></em>
+</p>
+<p>
+  <%= "by #{definition.user.try(:handle)} at" %>
+  <%=  link_to definition.created_at.strftime('%d %B %Y'), definition_path(definition) %>
+</p>
+<div>
+  <%= link_to "Like #{definition.likes_counter}", like_definition_path(definition), method: :post %>
+  <%= link_to "Dislike #{definition.dislikes_counter}", dislike_definition_path(definition), method: :post, class: 'red' %>
+</div>

@@ -1,0 +1,4 @@
+<div class="callout">
+  <h1><%= link_to word.word, word_path(word) %></h1>
+  <%= render 'definitions/definition', definition: word.definitions.best %>
+</div>

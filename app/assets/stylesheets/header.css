@@ -1,0 +1,21 @@
+header {
+  color: white;
+  background: #444455;
+}
+
+header .logo {
+  font-size: xx-large;
+}
+
+header .logo a {
+  color: white !important;
+}
+
+header ul {
+  list-style: none;
+  width: 100%;
+}
+
+header ul li {
+  display: inline-flex;
+}

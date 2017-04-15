@@ -1,0 +1,14 @@
+main {
+  padding-top: 50px;
+}
+
+.words-list {
+  list-style: none;
+  column-count: 3;
+}
+
+@media only screen and (max-width: 40.0625em) {
+  .words-list {
+    column-count: 2;
+  } 
+}
