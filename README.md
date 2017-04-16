@@ -1,24 +1,11 @@
-# README
+# KamusKita
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
 
-Things you may want to cover:
+A dictionary app for us. I wanted to make a localized UD for Malaysians.
 
-* Ruby version
+## Todo
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Search engine, preferrably elasticsearch based
+- Full Malay translation
+- SMTP setup, most probably only for password recovery
