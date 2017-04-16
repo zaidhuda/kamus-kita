@@ -1,3 +1,4 @@
 <% @words.each do |word| %>
   <%= render 'words/word', word: word, definition: word.best_definition %>
 <% end %>
+<%= paginate @words %>

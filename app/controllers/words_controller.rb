@@ -1,6 +1,6 @@
 class WordsController < ApplicationController
   def index
-    @words = Word.all.includes(best_definition: :user).page params[:page]
+    @words = Word.order(created_at: :desc).includes(best_definition: :user).page params[:page]
   end
 
   def show

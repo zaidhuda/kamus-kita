@@ -1,7 +1,9 @@
 <% if @words.present? %>
+  <p><%= pluralize(@words.size, 'definition') %> posted by <%= @user.handle %></p>
   <% @words.each do |word| %>
     <%= render 'words/word', word: word, definition: word.best_definition %>
-  <% end %>  
+  <% end %>
+  <%= paginate @words %>
 <% else %>
   <h4>No definition posted</h4>
 <% end %>
