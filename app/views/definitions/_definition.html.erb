@@ -1,9 +1,5 @@
-<p class='pre-line'>
-  <%= definition.definition %>
-</p>
-<p class='pre-line'>
-  <em><%= definition.example %></em>
-</p>
+<p class='pre-line'><%= definition.definition %></p>
+<p class='pre-line'><em><%= definition.example %></em></p>
 <p>
   <% if definition.user %>
     by <%= link_to definition.user.handle, definition.user %> at
