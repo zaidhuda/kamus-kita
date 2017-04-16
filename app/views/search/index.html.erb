@@ -6,5 +6,5 @@
 <% else %>
   <h4>No result found, check this word:</h4>
 
-  <%= render 'words/word', word: @random_word %>
+  <%= render 'words/word', word: @random_word, definition: @random_word.best_definition %>
 <% end %>
