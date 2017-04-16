@@ -1,67 +1,115 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
-  <title>The change you wanted was rejected (422)</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8">
+  <title>Forbidden</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-  body {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
-  }
+    @import url(https://fonts.googleapis.com/css?family=Bree+Serif|Source+Sans+Pro:300,400);
 
-  div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
+    *{
+      maring: 0;
+      padding: 0;
+    }
+    body{
+      font-family: 'Source Sans Pro', sans-serif;
+      background: #ffab91;
+      color: #bf360c;
+    }
+    a:link{
+      color: #bf360c;
+      text-decoration: none;
+    }
+    a:active{
+      color: #bf360c;
+      text-decoration: none;
+    }
+    a:hover{
+      color: #d84315;
+      text-decoration: none;
+    }
+    a:visited{
+      color: #bf360c;
+      text-decoration: none;
+    }
 
-  div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+    a.underline, .underline{
+      text-decoration: underline;
+    }
 
-  h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
+    .bree-font{
+      font-family: 'Bree Serif', serif;
+    }
 
-  div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+    #content{
+      margin: 0 auto;
+      max-width: 960px;
+    }
+
+    .clearfix:after {
+      content: ".";
+      display: block;
+      clear: both;
+      visibility: hidden;
+      line-height: 0;
+      height: 0;
+    }
+
+    .clearfix {
+      display: block;
+    }
+
+    #logo {
+      margin: 1rem;
+      float: left;
+      display: bloack;
+    }
+    nav{
+      float: right;
+      display: block;
+    }
+    nav ul > li{
+      list-style: none;
+      float: left;
+      margin: 0 2rem;
+      display: block;
+    }
+
+    #main-body{
+      text-align: center;
+    }
+
+    .enormous-font{
+      font-size: 10rem;
+      margin-bottom: 0rem;
+    }
+    .big-font{
+      font-size: 2rem;
+    }
+    hr{
+      width: 25%;
+      height: 1px;
+      background: #bf360c;
+      border: 0px;
+    }
   </style>
 </head>
-
 <body>
-  <!-- This file lives in public/422.html -->
-  <div class="dialog">
-    <div>
-      <h1>The change you wanted was rejected.</h1>
-      <p>Maybe you tried to change something you didn't have access to.</p>
+  <div id="content">
+    <header>
+      <div id="logo">
+        <a href="/"><strong>Kamus</strong>kita</a>
+      </div>
+    </header>
+
+    <div class="clearfix"></div>
+
+    <div id="main-body">
+      <p class="enormous-font bree-font"> 422 </p>
+      <p class="big-font">This is awkward; you are not supposed to be here...</p>
+      <hr>
+      <p class="big-font">Let’s return to the <a href="/" class="underline">home page</a></p>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
   </div>
 </body>
 </html>
