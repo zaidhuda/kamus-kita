@@ -20,6 +20,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'friendly_id'
 gem 'kaminari'
+gem 'meta-tags'
 
 group :development, :test do
   gem 'byebug', platform: :mri

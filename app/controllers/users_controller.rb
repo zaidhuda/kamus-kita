@@ -11,6 +11,8 @@ class UsersController < ApplicationController
       )
       .includes(best_definition: :user)
       .page params[:page]
+
+    set_meta_tags title: @user.handle
   end
 
   def edit

@@ -4,6 +4,9 @@ class DefinitionsController < ApplicationController
 
   def show
     @definition = Definition.find(params[:id])
+
+    set_meta_tags title: @definition.original_word,
+                  description: @definition.definition.truncate(140)
   end
 
   def new
