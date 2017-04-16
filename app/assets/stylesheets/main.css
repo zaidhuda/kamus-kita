@@ -16,3 +16,7 @@ main {
 .clear {
   clear: both;
 }
+
+.pre-line {
+  white-space: pre-line;
+}
