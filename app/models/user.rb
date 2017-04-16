@@ -17,4 +17,8 @@ class User < ApplicationRecord
   def handle_from_email
     "#{email.split('@').first}_#{Digest::MD5.hexdigest(email)[0..5]}"
   end
+
+  def should_generate_new_friendly_id?
+    true if handle_changed?
+  end
 end

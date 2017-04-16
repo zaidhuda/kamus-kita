@@ -2,6 +2,15 @@ class UsersController < ApplicationController
   layout "devise", only: [:edit]
 
   def show
+    @user = User.friendly.find(params[:id])
+    @words = Word.where(
+      id: Definition
+        .where(user_id: @user.id)
+        .uniq(:word_id)
+        .pluck(:word_id)
+      )
+      .includes(best_definition: :user)
+      .page params[:page]
   end
 
   def edit

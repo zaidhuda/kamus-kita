@@ -1,6 +1,6 @@
 <% if @words.present? %>
   <% @words.each do |word| %>
-    <%= render 'words/word', word: word %>
+    <%= render 'words/word', word: word, definition: word.best_definition %>
   <% end %>  
 <% else %>
   <h4>No result found, check this word:</h4>

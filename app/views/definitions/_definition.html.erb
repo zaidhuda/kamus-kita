@@ -5,7 +5,11 @@
   <em><%= definition.example %></em>
 </p>
 <p>
-  <%= "by #{definition.user.try(:handle) || 'unknown'} at" %>
+  <% if definition.user %>
+    by <%= link_to definition.user.handle, definition.user %> at
+  <% else %>
+    by unknown at
+  <% end %>
   <%=  link_to definition.created_at.strftime('%d %B %Y'), definition_path(definition) %>
 </p>
 <div>

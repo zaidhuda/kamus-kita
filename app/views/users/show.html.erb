@@ -1,2 +1,7 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<% if @words.present? %>
+  <% @words.each do |word| %>
+    <%= render 'words/word', word: word, definition: word.best_definition %>
+  <% end %>  
+<% else %>
+  <h4>No definition posted</h4>
+<% end %>
