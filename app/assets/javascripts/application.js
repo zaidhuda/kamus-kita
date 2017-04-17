@@ -23,7 +23,12 @@ $(document).on('turbolinks:load', function() {
     $('#user_password_confirmation').val(generated_password);
     console.log(generated_password)
   })
+
   $('#user_password').on('blur', function() {
     $('#user_password').attr({ type: "password" });
   })
+
+  try {
+    a2a.init_all();
+  } catch (e) {}
 });
