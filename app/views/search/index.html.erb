@@ -1,8 +1,8 @@
-<% if @words.present? %>
-  <% @words.each do |word| %>
-    <%= render 'words/word', word: word, definition: word.best_definition %>
+<% if @definitions.present? %>
+  <% @definitions.each do |definition| %>
+    <%= render 'words/word', word: definition.word, definition: definition %>
   <% end %>
-  <%= paginate @words %>
+  <%= paginate @definitions %>
 <% else %>
   <h4>No result found, check this word:</h4>
 

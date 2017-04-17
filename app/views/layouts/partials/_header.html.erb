@@ -1,55 +1,32 @@
-<% if current_user %>
-  <header>
-    <div class="row">
-      <div class="medium-12 columns">
-        <div class="row">
-          <div class="medium-12 columns">
-            <div class="logo">
-              <a href="<%= root_path %>"><strong>Kamus</strong>Kita</a>
-            </div>
-            <div class="user-actions">
+<header>
+  <div class="row">
+    <div class="medium-12 columns">
+      <div class="row">
+        <div class="medium-12 columns">
+          <div class="logo">
+            <a href="<%= root_path %>"><strong>Kamus</strong>Kita</a>
+          </div>
+          <div class="user-actions">
+            <% if current_user %>
               <%= link_to 'Handle', edit_user_path(current_user), class: 'small button secondary' %>
               <%= link_to 'Logout', destroy_user_session_path, class: 'small button secondary', method: :delete %>
-            </div>
-            <div class="clear"></div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="small-9 medium-10 columns">
-            <form  action="/search">
-              <input type="text" name="q" placeholder="Search">
-            </form>
-          </div>
-          <div class="small-3 medium-2 columns">
-            <%= link_to 'New', new_definition_path, class: 'button block' %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-<% else %>
-  <header>
-    <div class="row">
-      <div class="medium-12 columns">
-        <div class="row">
-          <div class="medium-12 columns">
-            <div class="logo">
-              <a href="<%= root_path %>"><strong>Kamus</strong>Kita</a>
-            </div>
-            <div class="user-actions">
+            <% else %>
               <%= link_to 'Login', new_user_session_path, class: 'small button' %>
-            </div>
-            <div class="clear"></div>
+            <% end %>
           </div>
+          <div class="clear"></div>
         </div>
-        <div class="row">
-          <div class="small-12 columns">
-            <form  action="/search">
-              <input type="text" name="q" placeholder="Search">
-            </form>
-          </div>
+      </div>
+      <div class="row">
+        <div class="small-9 medium-10 columns">
+          <form  action="/search">
+            <input type="text" name="q" placeholder="Search">
+          </form>
+        </div>
+        <div class="small-3 medium-2 columns">
+          <%= link_to 'New', new_definition_path, class: 'button block' %>
         </div>
       </div>
     </div>
-  </header>
-<% end %>
+  </div>
+</header>

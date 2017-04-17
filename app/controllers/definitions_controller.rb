@@ -1,5 +1,5 @@
 class DefinitionsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :create, :destroy]
+  before_action :authenticate_user!, only: [:edit, :destroy]
   before_action :set_definition, only: [:edit, :update, :destroy]
 
   def show
@@ -10,14 +10,14 @@ class DefinitionsController < ApplicationController
   end
 
   def new
-    @definition = current_user.definitions.new
+    @definition = current_user_or_anonymous.definitions.new
   end
 
   def edit
   end
 
   def create
-    @definition = current_user.definitions.new(definition_params)
+    @definition = current_user_or_anonymous.definitions.new(definition_params)
 
     respond_to do |format|
       if @definition.save

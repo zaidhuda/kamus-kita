@@ -3,14 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.friendly.find(params[:id])
-    @words = Word.where(
-      id: Definition
-        .where(user_id: @user.id)
-        .uniq(:word_id)
-        .pluck(:word_id)
-      )
-      .includes(best_definition: :user)
-      .page params[:page]
+    @definitions = Definition.where(user_id: @user.id).order(likes_counter: :desc, created_at: :desc).page params[:page]
 
     set_meta_tags title: @user.handle
   end

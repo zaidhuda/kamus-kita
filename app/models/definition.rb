@@ -5,7 +5,7 @@ class Definition < ApplicationRecord
 
   before_validation :find_or_create_word
 
-  validates_presence_of :user_id, :word_id, :definition
+  validates_presence_of :user_id, :word_id, :original_word, :definition, :example
 
   def self.best
     self.order(likes_counter: :desc).limit(1).first
