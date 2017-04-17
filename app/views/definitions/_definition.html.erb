@@ -8,16 +8,16 @@
   <% end %>
   <%=  link_to definition.created_at.strftime('%d %B %Y'), word_definition_url(definition.word, definition) %>
 </p>
-<div>
-  <%= link_to like_definition_path(definition), method: :post, style: 'vertical-align: top' do %>
-    <span class="text-color-gray"><i class="material-icons">thumb_up</i></span>
-    <%= definition.likes_counter %>
+<div class="definition-likes">
+  <%= link_to like_definition_path(definition), method: :post, remote: :true do %>
+    <span class="text-color-gray icons"><i class="material-icons">thumb_up</i></span>
+    <span id="definition_<%= definition.id %>_likes"><%= definition.likes_counter %></span>
   <% end %>
   &nbsp;
   &nbsp;
-  <%= link_to dislike_definition_path(definition), method: :post, style: 'vertical-align: top' do %>
-    <span class="text-color-gray"><i class="material-icons">thumb_down</i></span>
-    <%= definition.dislikes_counter %>
+  <%= link_to dislike_definition_path(definition), method: :post, remote: :true do %>
+    <span class="text-color-gray icons"><i class="material-icons">thumb_down</i></span>
+    <span id="definition_<%= definition.id %>_dislikes"><%= definition.dislikes_counter %></span>
   <% end %>
 </div>
 <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-icon-color="transparent,#f57c00" data-a2a-url="<%= word_definition_url(definition.word, definition) %>" data-a2a-title="<%= a2a_title definition %>">
