@@ -17,7 +17,7 @@
       <% if definition.persisted? %>
         <%= text_field_tag :word, definition.original_word, disabled: true %>
       <% else %>
-        <%= f.text_field :original_word, autocomplete: :off, required: true %>
+        <%= f.text_field :original_word, value: params[:word], autocomplete: :off, required: true %>
       <% end %>
     </div>
   </div>

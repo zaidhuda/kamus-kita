@@ -55,6 +55,7 @@ $foundation-palette: (
   success: #3adb76,
   warning: #ffae00,
   alert: #cc4b37,
+  gray: #62757f,
 );
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
@@ -104,7 +105,7 @@ $block-grid-max: 8;
 // 4. Base Typography
 // ------------------
 
-$header-font-family: 'Playfair Display', serif;
+$header-font-family: 'Roboto Slab', serif;
 $header-font-weight: $global-weight-normal;
 $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;

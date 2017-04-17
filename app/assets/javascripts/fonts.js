@@ -1,1 +1,2 @@
-$('head').append('<link href="https://fonts.googleapis.com/css?family=Playfair+Display|Roboto" rel="stylesheet">');
+$('head').append('<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">');
+$('head').append('<link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:400,700" rel="stylesheet">');

@@ -1,5 +1,5 @@
 <% if @definitions.present? %>
-  <p><%= pluralize(@definitions.size, 'definition') %> posted by <%= @user.handle %></p>
+  <h4><%= pluralize(@definitions.size, 'definition') %> posted by <%= @user.handle %></h4>
   <% @definitions.each do |definition| %>
     <%= render 'words/word', word: definition.word, definition: definition %>
   <% end %>
