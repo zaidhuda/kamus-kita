@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  force_ssl
-  
   devise_for :users, controllers: {
     sessions: 'user/sessions',
     registrations: 'user/registrations'
