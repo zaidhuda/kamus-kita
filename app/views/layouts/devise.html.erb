@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ms">
   <head>
     <title>KamusKita</title>
     <%= csrf_meta_tags %>
@@ -11,6 +11,12 @@
   <body>
     <%= render partial: 'layouts/partials/devise_header' %>
     <main>
+      <%= render partial: 'layouts/partials/notice' %>
+      <div class="row">
+        <div class="medium-4 medium-offset-4 columns">
+          <%= render partial: 'layouts/partials/notice' %>
+        </div>
+      </div>
       <div class="row">
         <div class="medium-4 medium-offset-4 columns">
           <%= render partial: 'layouts/partials/notice' %>
@@ -19,5 +25,6 @@
       </div>
     </main>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'fonts', 'data-turbolinks-track': 'reload', async: true %>
   </body>
 </html>

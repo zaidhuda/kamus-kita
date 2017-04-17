@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ms">
   <head>
     <%= display_meta_tags(default_meta_tags) %>
     <%= csrf_meta_tags %>
@@ -20,5 +20,6 @@
     </main>
     <%= render partial: 'layouts/partials/footer' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'fonts', 'data-turbolinks-track': 'reload', async: true %>
   </body>
 </html>

@@ -1,0 +1,1 @@
+$('head').append('<link href="https://fonts.googleapis.com/css?family=Playfair+Display|Roboto" rel="stylesheet">');
