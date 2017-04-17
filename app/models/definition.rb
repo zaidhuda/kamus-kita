@@ -21,14 +21,12 @@ class Definition < ApplicationRecord
 
   def liked_by liker
     vote = votes.find_or_initialize_by(user: liker)
-    vote.like = true
-    vote.save
+    vote.update_attribute(:like, true)
   end
 
   def disliked_by disliker
     vote = votes.find_or_initialize_by(user: disliker)
-    vote.like = false
-    vote.save
+    vote.update_attribute(:like, false)
   end
   
   def destroy

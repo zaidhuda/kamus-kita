@@ -48,7 +48,7 @@ var activateClipboard = function() {
   var snackbarOptions = {
     content: "Copied!",
     style: "toast",
-    timeout: 1000
+    timeout: 2000
   }
 
   var clipboard = new Clipboard('.def-url-clipboard-btn');
