@@ -13,3 +13,17 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require password-generator
+
+$(document).on('turbolinks:load', function() {
+  $('.generate-random-password').on('click', function() {
+    var generated_password = generatePassword(12, 12);
+    $('#user_password').val(generated_password);
+    $('#user_password').attr({ type: "text" });
+    $('#user_password_confirmation').val(generated_password);
+    console.log(generated_password)
+  })
+  $('#user_password').on('blur', function() {
+    $('#user_password').attr({ type: "password" });
+  })
+});

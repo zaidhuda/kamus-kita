@@ -14,7 +14,8 @@
     <div class="medium-12 columns">
       <%= f.label :password %>
       <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <em>(<%= @minimum_password_length %> characters minimum)</em><br/>
+        <a onclick="return false" href="#" class="generate-random-password">Generate random password</a>
       <% end %>
       <%= f.password_field :password, autocomplete: "off" %>
     </div>

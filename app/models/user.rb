@@ -15,7 +15,11 @@ class User < ApplicationRecord
   end
 
   def handle_from_email
-    "user_#{Digest::MD5.hexdigest(email)[0..5]}"
+    "User #{Digest::MD5.hexdigest(email)[0..5]}"
+  end
+
+  def deleted_handle_from_email
+    "Deleted #{handle_from_email}"
   end
 
   def should_generate_new_friendly_id?

@@ -2,10 +2,12 @@
 <html lang="ms">
   <head>
     <%= display_meta_tags(default_meta_tags) %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'fonts', 'data-turbolinks-track': 'reload', async: true %>
   </head>
 
   <body>
@@ -19,7 +21,5 @@
       </div>
     </main>
     <%= render partial: 'layouts/partials/footer' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'fonts', 'data-turbolinks-track': 'reload', async: true %>
   </body>
 </html>

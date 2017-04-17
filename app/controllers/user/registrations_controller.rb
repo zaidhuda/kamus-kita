@@ -24,9 +24,14 @@ class User::RegistrationsController < Devise::RegistrationsController
   # end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  def destroy
+    resource.email = "#{SecureRandom.uuid}"
+    resource.password = nil
+    resource.handle = resource.deleted_handle_from_email
+    resource.save!(validate: false)
+    sign_out resource
+    redirect_to root_path
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign

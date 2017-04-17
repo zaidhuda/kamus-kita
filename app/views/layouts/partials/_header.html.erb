@@ -18,13 +18,15 @@
         </div>
       </div>
       <div class="row">
-        <div class="small-9 medium-10 columns">
+        <div class="small-9 medium-11 columns">
           <form  action="/search">
             <input type="text" name="q" placeholder="Search">
           </form>
         </div>
-        <div class="small-3 medium-2 columns">
-          <%= link_to 'New', new_definition_path, class: 'button block' %>
+        <div class="small-3 medium-1 columns">
+          <%= link_to new_definition_path, class: 'button icon block' do %>
+            <i class="material-icons">add</i>
+          <% end %>
         </div>
       </div>
     </div>
