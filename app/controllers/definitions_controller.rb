@@ -21,8 +21,8 @@ class DefinitionsController < ApplicationController
 
     respond_to do |format|
       if @definition.save
-        format.html { redirect_to @definition, notice: 'Definition was successfully created.' }
-        format.json { render :show, status: :created, location: @definition }
+        format.html { redirect_to word_definition_path(@definition.word, @definition), notice: 'Definition was successfully created.' }
+        format.json { render :show, status: :created, location: word_definition_path(@definition.word, @definition) }
       else
         format.html { render :new }
         format.json { render json: @definition.errors, status: :unprocessable_entity }

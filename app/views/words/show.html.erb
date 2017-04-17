@@ -1,5 +1,5 @@
 <% if @word_not_found %>
-  <h4>No record for <em><%= params[:id] %></em>, checkout <em><%= @word.word %></em> or <%= link_to 'add your definition', new_definition_path(word: params[:id]) %></h4>
+  <h4>No record for <em><%= params[:id] %></em>, checkout <em><%= @word.word %></em> or <%= link_to 'add your definition', new_word_definition_path %></h4>
 <% end %>
 <% @definitions.each do |definition| %>
   <div class="callout">
