@@ -22,6 +22,7 @@ gem 'devise'
 gem 'friendly_id'
 gem 'kaminari'
 gem 'meta-tags'
+gem 'sitemap_generator'
 
 group :development, :test do
   gem 'byebug', platform: :mri

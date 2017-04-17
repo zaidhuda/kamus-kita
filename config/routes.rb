@@ -6,11 +6,14 @@ Rails.application.routes.draw do
 
   resources :users, path: :u, only: [:show, :edit, :update]
 
+  get 'sitemap', to: 'sitemap#index'
   get 'search', to: 'search#index'
   get 'browse', to: 'browse#index'
+
   resources :words, path: :w, only: [:index, :show] do
       resources :definitions, path: :def, only: [:show]
   end
+
   resources :definitions, path: :def, except: [:index, :show] do
     member do
       post :like, to: 'votes#like'

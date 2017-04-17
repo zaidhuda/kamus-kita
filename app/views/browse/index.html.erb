@@ -1,16 +1,11 @@
 <div class="row">
-  <div class="medium-8 columns">
+  <div class="medium-12 columns">
     <div class="callout">
-      <ul class="word-list">
+      <ul class="words-list">
         <% @words.each do |word| %>
           <li><%= link_to word.word, word_path(word) %></li>
         <% end %>
       </ul>
-    </div>
-  </div>
-  <div class="medium-4 columns">
-    <div class="callout">
-      <h3>Popular words</h3>
     </div>
   </div>
 </div>
