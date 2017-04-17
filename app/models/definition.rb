@@ -19,6 +19,16 @@ class Definition < ApplicationRecord
     self.word = Word.create!(word: original_word)
   end
 
+  def update_counters
+    likes = votes.where(like: true).size
+    dislikes = votes.where(like: false).size
+    update_columns(
+         likes_counter: likes,
+      dislikes_counter: dislikes,
+                hidden: (dislikes > likes*2.5)
+    )
+  end
+
   def liked_by liker
     vote = votes.find_or_initialize_by(user: liker)
     vote.update_attribute(:like, true)
