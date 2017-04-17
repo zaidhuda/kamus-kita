@@ -10,14 +10,14 @@ class DefinitionsController < ApplicationController
   end
 
   def new
-    @definition = current_user_or_anonymous.definitions.new
+    @definition = current_or_guest_user.definitions.new
   end
 
   def edit
   end
 
   def create
-    @definition = current_user_or_anonymous.definitions.new(definition_params)
+    @definition = current_or_guest_user.definitions.new(definition_params)
 
     respond_to do |format|
       if @definition.save

@@ -7,8 +7,19 @@ class User < ApplicationRecord
          :rememberable, :trackable, :validatable
 
   has_many :definitions
+  has_many :votes
   validates_presence_of :handle
   validates_length_of :handle, minimum: 4, maximum: 32
+
+  def self.create_guest_user
+    guest = self.new(
+      email: "#{SecureRandom.uuid}@fake.email",
+      password: SecureRandom.hex,
+      guest: true)
+    guest.handle = "Guest #{Digest::MD5.hexdigest(guest.email)[0..5].humanize}"
+    guest.save
+    guest
+  end
 
   def handle
     super || handle_from_email
@@ -23,6 +34,6 @@ class User < ApplicationRecord
   end
 
   def should_generate_new_friendly_id?
-    true if handle_changed?
+    true
   end
 end
