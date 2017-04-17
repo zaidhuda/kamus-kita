@@ -14,8 +14,17 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require password-generator
+//= require clipboard
+//= require snackbar.min
 
 $(document).on('turbolinks:load', function() {
+  passwordGen();
+  prepareSnackbarContainer();
+  activateClipboard();
+  initA2A();
+});
+
+var passwordGen = function() {
   $('.generate-random-password').on('click', function() {
     var generated_password = generatePassword(16, 16);
     $('#user_password').val(generated_password);
@@ -27,8 +36,29 @@ $(document).on('turbolinks:load', function() {
   $('#user_password').on('blur', function() {
     $('#user_password').attr({ type: "password" });
   })
+}
 
+var prepareSnackbarContainer = function() {
+  if ($('#snackbar-container')[0] === undefined) {
+    $('body').append("<div id='snackbar-container'></div>")
+  }
+}
+
+var activateClipboard = function() {
+  var snackbarOptions = {
+    content: "Copied!",
+    style: "toast",
+    timeout: 1000
+  }
+
+  var clipboard = new Clipboard('.def-url-clipboard-btn');
+  clipboard.on('success', function() {
+    $.snackbar(snackbarOptions)
+  })
+}
+
+var initA2A = function() {
   try {
     a2a.init_all();
   } catch (e) {}
-});
+}

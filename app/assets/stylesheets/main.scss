@@ -14,8 +14,8 @@ main {
   } 
 }
 
-.clear {
-  clear: both;
+.button.block {
+  width: 100%;
 }
 
 .pre-line {
@@ -32,6 +32,10 @@ main {
   right: 16px;
 }
 
+.a2a_kit a * {
+  font-size: 32px;
+}
+
 .definition-likes .icons {
   vertical-align: sub;
 }
@@ -40,4 +44,18 @@ main {
   position: absolute;
   bottom: 16px;
   right: 16px;
+}
+
+#snackbar-container {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.snackbar {
+  min-width: 0px;
+  text-align: center;
+}
+
+.snackbar.snackbar-opened {
+  padding: 14px 30px;
 }

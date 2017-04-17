@@ -17,6 +17,7 @@ gem 'foundation-rails'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem 'clipboard-rails'
 
 gem 'devise'
 gem 'friendly_id'
