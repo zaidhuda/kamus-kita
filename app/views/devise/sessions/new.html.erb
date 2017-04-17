@@ -1,6 +1,8 @@
 <h3>Log in</h3>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
   <div class="row">
     <div class="medium-12 columns">
       <%= f.label :email %>
