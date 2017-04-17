@@ -1,9 +1,16 @@
+<% if @definition.user.id == guest_user_id_session %>
+  <div class="callout secondary">
+    <h6> 
+      <%= link_to 'Login', new_user_session_path %>
+      or
+      <%= link_to 'sign up', new_user_registration_path %>
+      now to claim this definition.
+    </h6>
+  </div>
+<% end %>
+
 <div class="callout">
   <h1><%= link_to @definition.original_word, word_path(@definition.word) %></h1>
 
   <%= render 'definitions/definition', definition: @definition %>
 </div>
-
-<% if current_user && current_user == @definition.user %>
-  <%= link_to 'Edit definition', edit_definition_path(@definition), class: 'button' %>
-<% end %>

@@ -10,7 +10,7 @@ class DefinitionsController < ApplicationController
   end
 
   def new
-    @definition = current_or_guest_user.definitions.new
+    @definition = Definition.new
   end
 
   def edit

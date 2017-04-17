@@ -1,36 +1,32 @@
 class ApplicationController < ActionController::Base
+  include ApplicationHelper
   protect_from_forgery with: :exception
-
-  protected
 
   def current_or_guest_user
     if current_user
-      if session[:guest_user_id] && session[:guest_user_id] != current_user.id
+      if guest_user_id_session && guest_user_id_session != current_user.id
         belongings_handover
         guest_user(with_retry = false).reload.try(:destroy)
-        session[:guest_user_id] = nil
+        session.delete(:guest_user_id)
       end
       current_user
     else
       guest_user
     end
   end
+  helper_method :current_or_guest_user
+
+  protected
 
   def guest_user(with_retry = true)
     @cached_guest_user ||= User.find(session[:guest_user_id] ||= create_guest_user.id)
   rescue ActiveRecord::RecordNotFound
-     session[:guest_user_id] = nil
+     session.delete(:guest_user_id)
      if with_retry
        guest_user
      else
       authenticate_user!
     end
-  end
-  
-  def current_user_or_anonymous
-    current_user || User.friendly.find('anonymous'.freeze)
-  rescue ActiveRecord::RecordNotFound
-    authenticate_user!
   end
 
   private
@@ -38,7 +34,7 @@ class ApplicationController < ActionController::Base
   def belongings_handover
     if guest = guest_user(with_retry = false)
       definitions = guest.definitions
-      definitions.update_all(:user_id, current_user.id)      
+      definitions.update_all(user_id: current_user.id)      
     end
   end
 

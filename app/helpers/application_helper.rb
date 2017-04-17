@@ -7,4 +7,8 @@ module ApplicationHelper
       description: 'We define our culture'
     }
   end
+
+  def guest_user_id_session
+    session[:guest_user_id]  
+  end
 end
