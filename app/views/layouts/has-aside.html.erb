@@ -14,27 +14,17 @@
   <body>
     <%= render partial: 'layouts/partials/header' %>
     <%= render partial: 'layouts/partials/notice' %>
-    <% if @display_aside %>
-      <div class="row">
-        <div class="medium-8 columns">
-          <main role="main">
-            <%= yield %>
-          </main>
-        </div>
-        <div class="medium-4 columns">
-          <main role="main">
-            <%= render partial: 'layouts/partials/aside' %>
-          </main>
-        </div>
+    <div class="row">
+      <div class="medium-8 columns">
+        <main role="main">
+          <%= yield %>
+        </main>
       </div>
-    <% else %>
-      <div class="row">
-        <div class="medium-12 columns">
-          <main role="main">
-            <%= yield %>
-          </main>
-        </div>
+      <div class="medium-4 columns">
+        <main role="main">
+          <%= render partial: 'layouts/partials/aside' %>
+        </main>
       </div>
-    <% end %>
+    </div>
   </body>
 </html>

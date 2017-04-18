@@ -1,6 +1,7 @@
 class DefinitionsController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :destroy]
   before_action :set_definition, only: [:edit, :update, :destroy]
+  before_action :display_aside, only: [:show]
 
   def show
     @definition = Definition.find(params[:id])

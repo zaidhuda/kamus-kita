@@ -1,4 +1,6 @@
 class WordsController < ApplicationController
+  before_action :display_aside
+
   def index
     @words = Word.order(created_at: :desc).includes(best_definition: :user).page params[:page]
   end

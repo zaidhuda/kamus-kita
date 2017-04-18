@@ -1,4 +1,6 @@
 class SearchController < ApplicationController
+  before_action :display_aside
+
   def index
     @definitions = Definition
                     .includes(:user, :word)

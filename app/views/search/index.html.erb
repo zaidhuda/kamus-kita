@@ -1,10 +1,10 @@
 <% if @definitions.present? %>
   <% @definitions.each do |definition| %>
-    <%= render 'words/word', word: definition.word, definition: definition %>
+    <%= render definition.word, definition: definition %>
   <% end %>
   <%= paginate @definitions %>
 <% else %>
   <h4>Could not find <em><%= params[:q] %></em>, checkout <em><%= @random_word.word %></em> or <%= link_to 'add your definition', new_word_definition_path %></h4>
 
-  <%= render 'words/word', word: @random_word, definition: @random_word.best_definition %>
+  <%= render @random_word, definition: @random_word.best_definition %>
 <% end %>

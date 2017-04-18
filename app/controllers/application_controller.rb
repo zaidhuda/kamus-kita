@@ -29,6 +29,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def display_aside
+    @display_aside = true
+  end
+
   private
 
   def belongings_handover

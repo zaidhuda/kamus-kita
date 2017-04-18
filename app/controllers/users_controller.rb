@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   layout "devise", only: [:edit]
+  before_action :display_aside, only: [:show]
 
   def show
     @user = User.friendly.find(params[:id])

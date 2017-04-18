@@ -1,7 +1,7 @@
 <% if @definitions.present? %>
   <h4><%= pluralize(@definitions.size, 'definition') %> posted by <%= @user.handle %></h4>
   <% @definitions.each do |definition| %>
-    <%= render 'words/word', word: definition.word, definition: definition %>
+    <%= render definition.word, definition: definition %>
   <% end %>
   <%= paginate @definitions %>
 <% else %>
