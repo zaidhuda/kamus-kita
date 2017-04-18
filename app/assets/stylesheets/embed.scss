@@ -12,10 +12,27 @@
  *
  *= require snackbar.min
  *= require snackbar-material
- *= require header
- *= require footer
  *= require lightsaber
  *= require main
- *= require foundation_and_overrides
  *= require_self
  */
+
+@import 'settings';
+@import 'foundation';
+
+@include foundation-global-styles;
+@include foundation-typography;
+@include foundation-button;
+@include foundation-callout;
+
+@each $name, $color in $foundation-palette {
+  .text-color-#{$name} { color:$color; }
+}
+
+.callout {
+  margin-bottom: 0;
+}
+
+body, html {
+  background: transparent;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ms">
+  <head>
+    <%= display_meta_tags(default_meta_tags) %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'embed', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'embed', 'data-turbolinks-track': 'reload', async: Rails.env.production? %>
+    <%= javascript_include_tag 'fonts', 'data-turbolinks-track': 'reload', async: true %>
+    <%= javascript_include_tag 'https://static.addtoany.com/menu/page.js', 'data-turbolinks-track': true, async: true %>
+  </head>
+
+  <body>
+    <div class="callout">
+      <%=  link_to @definition.created_at.strftime('%d %B %Y'), word_definition_url(@word, @definition), target: :_blank, class: "text-color-gray" %>
+      <h1><%= link_to @definition.original_word, word_path(@word), target: :_blank %></h1>
+      <p class='pre-line'><%= @definition.definition %></p>
+      <p class='pre-line'><em><%= @definition.example %></em></p>
+      <p>
+        <% if @definition.user %>
+          by <%= link_to @definition.user.handle, @definition.user, target: :_blank %>
+        <% else %>
+          by unknown
+        <% end %>
+      </p>
+      <div class="definition-likes">
+        <div class="ligtsaber-container">
+          <%= render 'layouts/partials/lightsaber', likes: @definition.likes_counter, dislikes: @definition.dislikes_counter %>
+        </div>
+        <span class="text-color-gray icons"><i class="material-icons">thumb_up</i></span>
+        <span id="definition_<%= @definition.id %>_likes"><%= @definition.likes_counter %></span>
+        &nbsp;
+        &nbsp;
+        <span class="text-color-gray icons"><i class="material-icons">thumb_down</i></span>
+        <span id="definition_<%= @definition.id %>_dislikes"><%= @definition.dislikes_counter %></span>
+      </div>
+      <div class="a2a_kit a2a_kit_size_24 a2a_default_style" data-a2a-icon-color="transparent,#f57c00" data-a2a-url="<%= word_definition_url(@word, @definition) %>" data-a2a-title="<%= a2a_title @definition %>">
+        <a class="def-url-clipboard-btn" data-clipboard-text="<%= word_definition_url(@word, @definition) %>">
+          <i class="material-icons">link</i>
+        </a>
+        <a class="a2a_button_facebook"></a>
+        <a class="a2a_button_twitter"></a>
+      </div>
+    </div>
+  </body>
+</html>
