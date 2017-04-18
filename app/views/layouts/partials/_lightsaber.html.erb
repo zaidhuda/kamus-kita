@@ -1,0 +1,6 @@
+<% likes ||= 0 %>
+<% dislikes ||= 0 %>
+<div class="lightsabers" data-value="<%= likes+dislikes %>">
+  <div class="lightsaber-bar left" data-value="<%= likes %>"></div>
+  <div class="lightsaber-bar right" data-value="<%= dislikes %>"></div>
+</div>

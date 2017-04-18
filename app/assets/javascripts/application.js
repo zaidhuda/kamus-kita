@@ -16,12 +16,14 @@
 //= require password-generator
 //= require clipboard
 //= require snackbar.min
+//= require lightsaber
 
 $(document).on('turbolinks:load', function() {
   passwordGen();
   prepareSnackbarContainer();
   activateClipboard();
   initA2A();
+  $('.lightsabers').lightsaber();
 });
 
 var passwordGen = function() {

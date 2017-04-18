@@ -20,12 +20,9 @@ class Definition < ApplicationRecord
   end
 
   def update_counters
-    likes = votes.where(like: true).size
-    dislikes = votes.where(like: false).size
     update_columns(
-         likes_counter: likes,
-      dislikes_counter: dislikes,
-                hidden: (dislikes > likes*2.5)
+         likes_counter: votes.where(like: true).size,
+      dislikes_counter: votes.where(like: false).size
     )
   end
 

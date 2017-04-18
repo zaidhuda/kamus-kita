@@ -13,6 +13,9 @@
     <% end %>
   </p>
   <div class="definition-likes">
+    <div class="ligtsaber-container">
+      <%= render 'layouts/partials/lightsaber', likes: definition.likes_counter, dislikes: definition.dislikes_counter %>
+    </div>
     <%= link_to like_definition_path(definition), method: :post, remote: :true do %>
       <span class="text-color-gray icons"><i class="material-icons">thumb_up</i></span>
       <span id="definition_<%= definition.id %>_likes"><%= definition.likes_counter %></span>

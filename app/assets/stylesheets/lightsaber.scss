@@ -1,0 +1,18 @@
+.lightsabers {
+  width: 100%;
+  background: #8eacbb;
+}
+
+.lightsabers, .lightsaber-bar {
+  height: 2px;
+}
+
+.lightsabers .left {
+  float: left;
+  background: #f57c00;
+}
+
+.lightsabers .right {
+  float: right;
+  background: #607d8b;
+}
