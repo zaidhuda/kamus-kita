@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
 
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', async: Rails.env.production? %>
     <%= javascript_include_tag 'fonts', 'data-turbolinks-track': 'reload', async: true %>
   </head>
 
   <body>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload', property: 'stylesheet' %>
     <%= render partial: 'layouts/partials/devise_header' %>
     <main>
       <div class="row">
