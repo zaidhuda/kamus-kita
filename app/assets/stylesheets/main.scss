@@ -11,7 +11,7 @@ main {
 @media only screen and (max-width: 40.0625em) {
   .words-list {
     column-count: 2;
-  } 
+  }
 }
 
 .button.block {
@@ -71,4 +71,8 @@ main {
 .ligtsaber-container {
   width: 200px;
   height: 10px;
+}
+
+.pagination li {
+    display: inline-block;
 }
