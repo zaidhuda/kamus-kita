@@ -55,11 +55,19 @@ main {
   transform: translateX(-50%);
 }
 
-.snackbar {
+#snackbar-container .snackbar {
   min-width: 0px;
   text-align: center;
 }
 
-.snackbar.snackbar-opened {
+#snackbar-container .snackbar.snackbar-opened {
   padding: 14px 30px;
+}
+
+@media (max-width:767px){
+  #snackbar-container {
+    left: 50% !important;
+    transform: translateX(-50%);
+    width: auto;
+  }
 }
