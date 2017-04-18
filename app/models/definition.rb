@@ -19,13 +19,6 @@ class Definition < ApplicationRecord
     self.word = Word.create!(word: original_word)
   end
 
-  def update_counters
-    update_columns(
-         likes_counter: votes.where(like: true).size,
-      dislikes_counter: votes.where(like: false).size
-    )
-  end
-
   def liked_by liker
     vote = votes.find_or_initialize_by(user: liker)
     vote.update_attribute(:like, true)
@@ -34,6 +27,22 @@ class Definition < ApplicationRecord
   def disliked_by disliker
     vote = votes.find_or_initialize_by(user: disliker)
     vote.update_attribute(:like, false)
+  end
+
+  after_find do |definition|
+    update_counters if should_update_counters?
+  end
+
+  def should_update_counters?
+    counters_updated_at < 1.hour.ago
+  end
+
+  def update_counters
+    update_columns(
+            likes_counter: votes.where(like: true).size,
+         dislikes_counter: votes.where(like: false).size,
+      counters_updated_at: Time.now
+    )
   end
   
   def destroy

@@ -4,7 +4,6 @@ module DefinitionsHelper
   end
 
   def new_word_definition_path
-    p controller_name
     case controller_name
     when 'words'
       new_definition_path(word: params[:id])
