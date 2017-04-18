@@ -9,8 +9,4 @@
   </div>
 <% end %>
 
-<div class="callout">
-  <h1><%= link_to @definition.original_word, word_path(@definition.word) %></h1>
-
-  <%= render 'definitions/definition', definition: @definition %>
-</div>
+<%= render 'definitions/definition', definition: @definition %>
