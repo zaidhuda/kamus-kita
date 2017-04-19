@@ -24,13 +24,13 @@
 //= require foundation.util.mediaQuery
 //= require foundation.util.nest
 
-$(document).on('turbolinks:load', function() {
+$(document).on('turbolinks:load ready', function() {
+  $(document).foundation();
   passwordGen();
   prepareSnackbarContainer();
   activateClipboard();
   initA2A();
   $('.lightsabers').lightsaber();
-  $(document).foundation();
 });
 
 var passwordGen = function() {
