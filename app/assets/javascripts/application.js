@@ -23,6 +23,8 @@
 //= require foundation.util.box
 //= require foundation.util.mediaQuery
 //= require foundation.util.nest
+//= require nprogress
+//= require nprogress-turbolinks
 
 $(document).on('turbolinks:load ready', function() {
   $(document).foundation();
