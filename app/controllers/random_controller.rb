@@ -7,8 +7,8 @@ class RandomController < ApplicationController
                     .order(likes_counter: :desc, created_at: :desc)
                     .page params[:page]
 
-    set_meta_tags title: 'Random',
-                  description: 'Find random word'
+    set_meta_tags title: @word.word,
+                  description: 'Find random word.'
 
     render template: 'words/show'
   end

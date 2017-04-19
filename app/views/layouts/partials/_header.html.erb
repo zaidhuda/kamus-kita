@@ -11,7 +11,7 @@
               <%= link_to '<i class="material-icons">add</i>'.html_safe, new_word_definition_path, class: 'button icon' %>
             </li>
             <li>
-              <%= link_to '<i class="material-icons">shuffle</i>'.html_safe, random_path, class: 'button icon' %>
+              <%= link_to '<i class="material-icons">shuffle</i>'.html_safe, random_path(time: Time.now.to_f), class: 'button icon' %>
             </li>
             <li>
               <% if current_user %>
