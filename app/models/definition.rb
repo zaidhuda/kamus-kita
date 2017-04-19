@@ -29,6 +29,11 @@ class Definition < ApplicationRecord
     vote.update_attribute(:like, false)
   end
 
+  def ignored_by everyone
+    vote = votes.find_or_initialize_by(user: everyone)
+    vote.update_attribute(:like, nil)
+  end
+
   after_find do |definition|
     update_counters if should_update_counters?
   end

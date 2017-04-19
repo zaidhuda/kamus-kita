@@ -1,0 +1,48 @@
+<% if @definition %>
+  <div class="row">
+    <div class="medium-8 medium-offset-2 columns">
+      <h3>Should this be in <strong>Kamus</strong>Kita?</h3>
+      <div class="callout">
+        <h1><%= link_to @definition.original_word, word_path(@definition.word) %></h1>
+        <p class='pre-line'><%= @definition.definition %></p>
+        <p class='pre-line'><em><%= @definition.example %></em></p>
+        <p>
+          <% if @definition.user %>
+            by <%= link_to @definition.user.handle, @definition.user %>
+          <% else %>
+            by unknown
+          <% end %>
+        </p>
+      </div>
+      <div class="row">
+        <div class="small-12 columns">
+          <div class="expanded button-group">
+            <%= link_to vote_dislike_path(@definition), method: :post, class: 'button alert' do %>
+              <i class="material-icons">thumb_down</i>
+            <% end %>
+            <%= link_to vote_ignore_path(@definition), method: :post, class: 'button light-gray' do %>
+              <i class="material-icons">clear</i>
+            <% end %>
+            <%= link_to vote_like_path(@definition), method: :post, class: 'button success' do %>
+              <i class="material-icons">thumb_up</i>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class="row">
+    <div class="medium-8 medium-offset-2 columns">
+      <div class="callout center text-center">
+        <h4>Terrific!</h4>
+        <p>You've voted for all definitions. Comeback later to vote again.</p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-8 medium-offset-2 columns text-center">
+      <%= link_to 'Add your own definition', new_word_definition_path, class: 'button' %>
+    </div>
+  </div>
+<% end %>

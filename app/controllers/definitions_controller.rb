@@ -50,7 +50,7 @@ class DefinitionsController < ApplicationController
         format.json { render :show, status: :ok, location: word_definition_path(@definition.word, @definition) }
         format.js
       else
-        format.html { render :edit }
+        format.html { redirect_to word_definition_path(@definition.word, @definition), notice: 'Could not like definition.' }
         format.json { render json: @definition.errors, status: :unprocessable_entity }
         format.js
       end
@@ -64,7 +64,7 @@ class DefinitionsController < ApplicationController
         format.json { render :show, status: :ok, location: word_definition_path(@definition.word, @definition) }
         format.js
       else
-        format.html { render :edit }
+        format.html { redirect_to word_definition_path(@definition.word, @definition), notice: 'Could not dislike definition.' }
         format.json { render json: @definition.errors, status: :unprocessable_entity }
         format.js
       end

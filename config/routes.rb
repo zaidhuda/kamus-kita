@@ -11,6 +11,13 @@ Rails.application.routes.draw do
   get 'browse', to: 'browse#index'
   get 'random', to: 'random#index'
 
+  scope :vote, as: :vote do
+    get '/', to: 'votes#index'
+    post '/like/:id', to: 'votes#like', as: :like 
+    post '/dislike/:id', to: 'votes#dislike', as: :dislike 
+    post '/ignore/:id', to: 'votes#ignore', as: :ignore 
+  end
+
   resources :words, path: :w, only: [:index, :show] do
     resources :definitions, path: :def, only: [:show] do
       member do
