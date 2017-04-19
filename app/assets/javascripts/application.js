@@ -53,8 +53,13 @@ var activateClipboard = function() {
     timeout: 2000
   }
 
-  var clipboard = new Clipboard('.def-url-clipboard-btn');
-  clipboard.on('success', function() {
+  var defClipboard = new Clipboard('.def-url-clipboard-btn');
+  defClipboard.on('success', function() {
+    $.snackbar(snackbarOptions)
+  })
+
+  var embedClipboard = new Clipboard('.embed-code-btn');
+  embedClipboard.on('success', function() {
     $.snackbar(snackbarOptions)
   })
 }

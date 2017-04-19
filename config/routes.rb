@@ -11,10 +11,11 @@ Rails.application.routes.draw do
   get 'browse', to: 'browse#index'
 
   resources :words, path: :w, only: [:index, :show] do
-    resources :definitions, path: :def, only: [:show]
-    member do
-      get 'embed', to: 'embed#show'
-      get 'embed_test', to: 'embed#embed_test'
+    resources :definitions, path: :def, only: [:show] do
+      member do
+        get 'embed', to: 'embed#show'
+        get 'embed_settings', to: 'embed#embed_settings'
+      end
     end
   end
 

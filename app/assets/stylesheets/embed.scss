@@ -18,6 +18,11 @@
  */
 
 @import 'settings';
+$header-styles: (
+  small: (
+    'h1': ('font-size': 48),
+  ),
+);
 @import 'foundation';
 
 @include foundation-global-styles;
@@ -29,10 +34,22 @@
   .text-color-#{$name} { color:$color; }
 }
 
+body, html {
+  background: transparent;
+  min-width: 300px;
+  max-width: 768px;
+}
+
 .callout {
   margin-bottom: 0;
 }
 
-body, html {
-  background: transparent;
+.definition {
+  margin-bottom: 0.48em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: $paragraph-lineheight * 2.7em;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }

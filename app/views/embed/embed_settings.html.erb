@@ -1,0 +1,31 @@
+<h3>Embed definition to your page:</h3>
+<form action="#" method="get">
+  <div class="row">
+    <div class="medium-8 columns">
+      <input type="text" id="url" name="url" value="<%= params[:url] %>" placeholder="Word or Definiton URL">
+    </div>
+    <div class="medium-4 columns">
+      <div class="input-group">
+        <input class="input-group-field" type="number" id="width" name="width" value="<%= params[:width] %>" placeholder="Width" min="300" max="768">
+        <span class="input-group-label">px</span>
+      </div>
+    </div>
+  </div>
+  <button class="button">Submit</button>
+</form>
+<% if defined?(@iframe_code) %>
+  <div class="row">
+    <medium-12 class="columns">
+      <textarea id="embed_code" rows="3"><%= @iframe_code %></textarea>
+      <button class="button embed-code-btn" data-clipboard-target="#embed_code">Copy</button>
+    </medium-12>
+  </div>
+
+  <div class="row">
+    <medium-12 class="columns">
+      <%= @iframe_code.html_safe %>
+    </medium-12>
+  </div>
+<% else %>
+  <div class="callout alert">Invalid URL. Make sure <code>Definition URL</code> is correct</div>
+<% end %>
