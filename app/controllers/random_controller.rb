@@ -6,6 +6,10 @@ class RandomController < ApplicationController
                     .where(word_id: @word.id)
                     .order(likes_counter: :desc, created_at: :desc)
                     .page params[:page]
+
+    set_meta_tags title: 'Random',
+                  description: 'Find random word'
+
     render template: 'words/show'
   end
 end
