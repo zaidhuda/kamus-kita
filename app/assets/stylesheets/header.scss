@@ -4,8 +4,12 @@ header {
   padding: 0;
 }
 
+.top-bar {
+  padding: 0.5rem 0;
+}
+
 .top-bar .top-bar-left, .top-bar .top-bar-right {
-    width: auto;
+  width: auto;
 }
 
 .top-bar:nth-child(2) {
@@ -13,7 +17,7 @@ header {
 }
 
 .top-bar input {
-  margin: 0; 
+  margin: 0;
 }
 
 .top-bar-title {
