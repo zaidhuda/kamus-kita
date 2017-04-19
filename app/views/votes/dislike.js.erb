@@ -1,7 +1,0 @@
-$("#definition_<%= @definition.id %>_likes").html("<%= @definition.likes_counter %>");
-$("#definition_<%= @definition.id %>_dislikes").html("<%= @definition.dislikes_counter %>");
-$.snackbar({
-  content: "Definition disliked",
-  style: "toast",
-  timeout: 2000
-})

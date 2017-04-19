@@ -22,8 +22,8 @@ Rails.application.routes.draw do
 
   resources :definitions, path: :def, except: [:index, :show] do
     member do
-      post :like, to: 'votes#like'
-      post :dislike, to: 'votes#dislike'
+      post :like, to: 'definitions#like'
+      post :dislike, to: 'definitions#dislike'
     end
   end
 
