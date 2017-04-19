@@ -12,15 +12,15 @@
   </head>
 
   <body>
-    <%= render partial: 'layouts/partials/header' %>
+    <%= render 'layouts/partials/header', searchable: true %>
     <main>
-      <%= render partial: 'layouts/partials/notice' %>
+      <%= render 'layouts/partials/notice' %>
       <div class="row">
         <div class="medium-12 columns">
           <%= yield %>
         </div>
       </div>
     </main>
-    <%= render partial: 'layouts/partials/footer' %>
+    <%= render 'layouts/partials/footer' %>
   </body>
 </html>
