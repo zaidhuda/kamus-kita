@@ -15,10 +15,10 @@
             </li>
             <li>
               <% if current_user %>
-                <ul class="dropdown menu inline" data-dropdown-menu data-click-open="true" data-disable-hover="true" data-alignment="right" data-close-on-click="true">
+                <ul class="dropdown menu" data-dropdown-menu data-click-open="true" data-disable-hover="true" data-alignment="right" data-close-on-click="true">
                   <li>
                     <a class='button icon'><i class="material-icons">menu</i></a>
-                    <ul class="menu vertical">
+                    <ul class="menu vertical is-dropdown-submenu">
                       <li>
                         <%= link_to 'Vote', vote_path  %>
                       </li>

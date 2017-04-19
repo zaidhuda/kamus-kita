@@ -5,7 +5,7 @@
       var tag = e.target.tagName.toLowerCase();
       var charCode = (typeof e.which == "number") ? e.which : e.keyCode;
       if ((String.fromCharCode(charCode) === 'r' || String.fromCharCode(charCode) === 'R') && tag != 'input' && tag != 'textarea') {
-        window.location.href = "<%= random_path %>";
+        Turbolinks.visit("<%= random_path %>");
       }
     };
   }
