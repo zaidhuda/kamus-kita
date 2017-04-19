@@ -4,7 +4,12 @@ module ApplicationHelper
       site: 'KamusKita',
       title: '',
       reverse: true,
-      description: 'We define our culture'
+      description: 'We define our culture',
+      twitter: {
+        card: "summary",
+        title: :title,
+        description: :description
+      }
     }
   end
 
