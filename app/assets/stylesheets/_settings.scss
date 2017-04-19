@@ -58,13 +58,13 @@ $foundation-palette: (
   gray: #607d8b,
   medium-gray: #607d8b,
   light-gray: #8eacbb,
-  dark-gray: #34515e,
+  dark-gray: #37474f,
   black: #212121,
   white: #fafafa,
 );
 $light-gray: #8eacbb;
 $medium-gray: #607d8b;
-$dark-gray: #34515e;
+$dark-gray: #37474f;
 $black: #212121;
 $white: #fafafa;
 $body-background: $white;
@@ -347,7 +347,7 @@ $dropdown-sizes: (
 // 18. Dropdown Menu
 // -----------------
 
-$dropdownmenu-arrows: true;
+$dropdownmenu-arrows: false;
 $dropdownmenu-arrow-color: $anchor-color;
 $dropdownmenu-arrow-size: 6px;
 $dropdownmenu-min-width: 200px;
@@ -619,8 +619,8 @@ $tooltip-radius: $global-radius;
 // -----------
 
 $topbar-padding: 0.5rem;
-$topbar-background: $light-gray;
+$topbar-background: $dark-gray;
 $topbar-submenu-background: $topbar-background;
 $topbar-title-spacing: 0.5rem 1rem 0.5rem 0;
-$topbar-input-width: 200px;
+$topbar-input-width: 1024px;
 $topbar-unstack-breakpoint: medium;

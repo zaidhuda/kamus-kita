@@ -17,6 +17,12 @@
 //= require clipboard
 //= require snackbar.min
 //= require lightsaber
+//= require foundation.core
+//= require foundation.dropdownMenu
+//= require foundation.util.keyboard
+//= require foundation.util.box
+//= require foundation.util.mediaQuery
+//= require foundation.util.nest
 
 $(document).on('turbolinks:load', function() {
   passwordGen();
@@ -24,6 +30,7 @@ $(document).on('turbolinks:load', function() {
   activateClipboard();
   initA2A();
   $('.lightsabers').lightsaber();
+  $(document).foundation();
 });
 
 var passwordGen = function() {

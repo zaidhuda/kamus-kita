@@ -3,6 +3,10 @@ main {
   padding-bottom: 50px;
 }
 
+.contain-to-grid {
+    padding: 0 8px;
+}
+
 .words-list {
   list-style: none;
   column-count: 3;
@@ -23,7 +27,12 @@ main {
 }
 
 .button.icon {
+  text-align: center !important;
   padding: 5px;
+}
+
+.menu > li > a i {
+  margin-right: 0 !important;
 }
 
 .a2a_kit {
@@ -75,4 +84,8 @@ main {
 
 .pagination li {
   display: inline-block !important;
+}
+
+li.separator {
+  border-top: 1px solid #222;
 }

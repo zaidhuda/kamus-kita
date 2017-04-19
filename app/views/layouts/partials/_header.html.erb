@@ -1,33 +1,61 @@
 <header>
-  <div class="row">
-    <div class="medium-12 columns">
-      <div class="row">
-        <div class="medium-12 columns">
-          <div class="logo">
-            <a href="<%= root_path %>"><strong>Kamus</strong>Kita</a>
-          </div>
-          <div class="user-actions">
-            <% if current_user %>
-              <%= link_to 'Handle', edit_user_path(current_user), class: 'small button secondary' %>
-              <%= link_to 'Logout', destroy_user_session_path, class: 'small button secondary', method: :delete %>
-            <% else %>
-              <%= link_to 'Login', new_user_session_path, class: 'small button' %>
-            <% end %>
-          </div>
+  <div class="top-bar">
+    <div class="row">
+      <div class="middle-12 columns">
+        <div class="top-bar-title">
+          <a href="<%= root_path %>"><strong>Kamus</strong>Kita</a>
         </div>
-      </div>
-      <div class="row">
-        <div class="small-9 medium-11 columns">
-          <form  action="/search">
-            <input type="text" name="q" placeholder="Search">
-          </form>
-        </div>
-        <div class="small-3 medium-1 columns">
-          <%= link_to new_word_definition_path, class: 'button icon block' do %>
-            <i class="material-icons">add</i>
-          <% end %>
+        <div class="top-bar-right">
+          <ul class="menu">
+            <li>
+              <%= link_to '<i class="material-icons">add</i>'.html_safe, new_word_definition_path, class: 'button icon' %>
+            </li>
+            <li>
+              <%= link_to '<i class="material-icons">shuffle</i>'.html_safe, random_path, class: 'button icon' %>
+            </li>
+            <li>
+              <% if current_user %>
+                <ul class="dropdown menu inline" data-dropdown-menu data-click-open="true" data-disable-hover="true" data-alignment="right" data-close-on-click="true">
+                  <li>
+                    <a class='button icon'><i class="material-icons">menu</i></a>
+                    <ul class="menu vertical">
+                      <li>
+                        <%= link_to 'Vote', vote_path  %>
+                      </li>
+                      <li class="separator">
+                      </li>
+                      <li>
+                        <%= link_to 'Change handle', edit_user_path(current_user)  %>
+                      </li>
+                      <li>
+                        <%= link_to 'Manage account', edit_user_registration_path %>
+                      </li>
+                      <li class="separator">
+                      </li>
+                      <li>
+                        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              <% else %>
+                <li>
+                  <%= link_to '<i class="material-icons">account_circle</i>'.html_safe, new_user_session_path, class: 'button icon' %>
+                </li>
+              <% end %>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
   </div>
+  <% if defined? searchable %>
+    <div class="top-bar">
+      <div class="row">
+        <div class="middle-12 columns">
+          <form  action="/search"><input type="text" name="q" placeholder="Search"></form>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </header>
