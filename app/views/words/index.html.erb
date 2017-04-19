@@ -2,3 +2,5 @@
   <%= render 'words/word', word: word, definition: word.best_definition %>
 <% end %>
 <%= paginate @words %>
+
+<%= render partial: 'layouts/partials/randomizer' %>

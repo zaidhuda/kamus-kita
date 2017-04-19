@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'sitemap', to: 'sitemap#index'
   get 'search', to: 'search#index'
   get 'browse', to: 'browse#index'
+  get 'random', to: 'random#index'
 
   resources :words, path: :w, only: [:index, :show] do
     resources :definitions, path: :def, only: [:show] do
