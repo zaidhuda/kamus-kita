@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   default_url_options Rails.application.config.action_mailer.default_url_options
-  
   devise_for :users, path: '/',
     only: ["sessions", "registrations", "passwords"], 
     controllers: {
