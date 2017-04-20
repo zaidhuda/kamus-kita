@@ -11,6 +11,10 @@ class Definition < ApplicationRecord
     self.pluck(:likes_counter).sum
   end
 
+  def self.total_dislikes
+    self.pluck(:dislikes_counter).sum
+  end
+
   def find_or_create_word
     if new_record?
       self.word = Word.friendly.find(original_word.downcase.parameterize)

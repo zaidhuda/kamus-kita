@@ -33,6 +33,10 @@ class User < ApplicationRecord
     "Deleted #{handle_from_email}"
   end
 
+  def points
+    votes.significant.ids.size + definitions.total_likes - [definitions.total_dislikes, definitions.total_likes*2].min
+  end
+
   def should_generate_new_friendly_id?
     true
   end
