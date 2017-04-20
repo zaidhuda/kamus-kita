@@ -7,8 +7,8 @@ class Definition < ApplicationRecord
 
   validates_presence_of :user_id, :word_id, :original_word, :definition, :example
 
-  def self.best
-    self.order(likes_counter: :desc).limit(1).first
+  def self.total_likes
+    self.pluck(:likes_counter).sum
   end
 
   def find_or_create_word

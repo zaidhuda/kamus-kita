@@ -1,9 +1,24 @@
-<% if @definitions.present? %>
-  <h4><%= pluralize(@definitions.size, 'definition') %> posted by <code><%= @user.handle %></code></h4>
-  <% @definitions.each do |definition| %>
-    <%= render 'words/word', word: definition.word, definition: definition %>
-  <% end %>
-  <%= paginate @definitions %>
-<% else %>
-  <h4>No definition posted</h4>
-<% end %>
+<div class="row">
+  <div class="columns large-4 large-push-8">
+    <div class="callout">
+      <h5><%= @user.handle %></h5>
+      <p>
+        <span class="text-color-gray">Joined</span> <%= @user.created_at.strftime('%d %B %Y') %>
+        <br/>
+        <span class="text-color-gray">Submitted</span> <%= pluralize(@definitions.size, 'definition') %>
+        <br/>
+        <span class="text-color-gray">Liked</span> <%= pluralize(@definitions.total_likes, 'time') %>
+      </p>
+    </div>
+  </div>
+  <div class="columns large-8 large-pull-4">
+    <% if @definitions.present? %>
+      <% @definitions.each do |definition| %>
+        <%= render 'words/word', word: definition.word, definition: definition %>
+      <% end %>
+      <%= paginate @definitions %>
+    <% else %>
+      <h4>No definition posted</h4>
+    <% end %>
+  </div>
+</div>
