@@ -34,7 +34,10 @@ class User < ApplicationRecord
   end
 
   def points
-    votes.significant.ids.size + definitions.ids.size + definitions.total_likes - [definitions.total_dislikes, [definitions.total_likes, 1].max*2].min
+    votes = definitions.votes
+    likes = votes.likes
+    dislikes = votes.dislikes
+    self.votes.significant.ids.size + definitions.ids.size + votes.likes - [votes.dislikes, [votes.likes, 1].max*2].min
   end
 
   def should_generate_new_friendly_id?

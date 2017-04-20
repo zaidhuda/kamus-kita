@@ -7,12 +7,8 @@ class Definition < ApplicationRecord
 
   validates_presence_of :user_id, :word_id, :original_word, :definition, :example
 
-  def self.total_likes
-    self.pluck(:likes_counter).sum
-  end
-
-  def self.total_dislikes
-    self.pluck(:dislikes_counter).sum
+  def self.votes
+    self.select("user_id, SUM(likes_counter) as likes, SUM(dislikes_counter) as dislikes").group(:user_id)[0]
   end
 
   def find_or_create_word
@@ -44,6 +40,8 @@ class Definition < ApplicationRecord
 
   def should_update_counters?
     counters_updated_at < 1.hour.ago
+  rescue ActiveModel::MissingAttributeError
+    false
   end
 
   def update_counters
