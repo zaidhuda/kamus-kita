@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'search', to: 'search#index'
   get 'browse', to: 'browse#index'
   get 'random', to: 'random#index'
+  get 'faq', to: 'faq#index'
 
   scope :vote, as: :vote do
     get '/', to: 'votes#index'
