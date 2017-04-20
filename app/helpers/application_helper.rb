@@ -4,7 +4,7 @@ module ApplicationHelper
       site: 'KamusKita',
       title: '',
       reverse: true,
-      description: 'We define our culture',
+      description: 'Kamus sempoi untuk bahasa borak',
       twitter: {
         card: "summary",
         title: :title,
