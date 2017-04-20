@@ -1,7 +1,7 @@
 <% unless current_user.present? %>
   <div class="callout secondary">
     <h6>
-      Adding definiton as a <strong>guest</strong>, if you 
+      Adding definiton as a <strong>guest</strong>, if you
       <%= link_to 'login', new_user_session_path %>
       or
       <%= link_to 'sign up', new_user_registration_path %>
@@ -36,18 +36,18 @@
 
   <div class="row">
     <div class="large-12 columns">
-      <%= f.label :definition %>
-      <%= f.text_area :definition, rows: 5, required: true %>
+      <div class="callout">
+        <p>
+          Enclose words in definition and example within <code>[</code> <code>]</code> to link to other words, even if it is not yet present in the database.
+        </p>
+      </div>
     </div>
   </div>
 
   <div class="row">
     <div class="large-12 columns">
-      <div class="callout">
-        <p>
-          Enclose words in <code>[</code> <code>]</code> to link to other words, even if it is not yet present in the database.
-        </p>
-      </div>
+      <%= f.label :definition %>
+      <%= f.text_area :definition, rows: 5, required: true %>
     </div>
   </div>
 

@@ -19,6 +19,12 @@ class Definition < ApplicationRecord
     self.word = Word.create!(word: original_word)
   end
 
+  def cleaned_definition
+    definition.gsub(/\[.*?\]/){ |s|
+      s[1..s.size-2] if s.size > 2
+    }
+  end
+
   def liked_by liker
     vote = votes.find_or_initialize_by(user: liker)
     vote.update_attribute(:like, true)
@@ -51,7 +57,7 @@ class Definition < ApplicationRecord
       counters_updated_at: Time.now
     )
   end
-  
+
   def destroy
     self.update_attribute(:hidden, true)
   end

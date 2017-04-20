@@ -16,6 +16,6 @@ class WordsController < ApplicationController
                     .page params[:page]
 
     set_meta_tags title: @word.word,
-                  description: @word.best_definition.definition.truncate(160)
+                  description: @word.best_definition.cleaned_definition.truncate(160)
   end
 end

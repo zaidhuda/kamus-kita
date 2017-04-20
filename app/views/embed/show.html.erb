@@ -21,8 +21,8 @@
         <% end %>
         </h1>
       <div class="definition">
-        <p class='pre-line'><%= @definition.definition %></p>
-        <p class='pre-line'><em><%= @definition.example %></em></p>
+        <p class='pre-line'><%= parse_linked_words @definition.definition, target: :_blank %></p>
+        <p class='pre-line'><em><%= parse_linked_words @definition.example, target: :_blank %></em></p>
       </div>
       <p>
         <% if @definition.user %>
