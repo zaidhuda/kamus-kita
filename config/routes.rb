@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users, path: '/', controllers: {
-    sessions: 'user/sessions',
-    registrations: 'user/registrations'
-  }
+  devise_for :users, path: '/',
+    only: ["sessions", "registrations", "passwords"], 
+    controllers: {
+      sessions: 'user/sessions',
+      registrations: 'user/registrations',
+      passwords: 'user/passwords'
+    }
 
   resources :users, path: :u, only: [:show, :edit, :update]
 
