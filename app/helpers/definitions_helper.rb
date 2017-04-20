@@ -15,4 +15,13 @@ module DefinitionsHelper
       new_definition_path
     end
   end
+
+  def parse_linked_words definition
+    definition.gsub(/\[.*?\]/){ |s|
+      word = s[1..s.size-2] if s.size > 2
+      if word
+        link_to word, word_path(id: word.parameterize)
+      end
+    }.html_safe
+  end
 end
