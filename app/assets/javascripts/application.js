@@ -37,7 +37,7 @@ $(document).on('turbolinks:load ready', function() {
 
 var passwordGen = function() {
   $('.generate-random-password').on('click', function() {
-    var generated_password = generatePassword(16, 16);
+    var generated_password = generatePassword(12, 12);
     $('#user_password').val(generated_password);
     $('#user_password').attr({ type: "text" });
     $('#user_password_confirmation').val(generated_password);

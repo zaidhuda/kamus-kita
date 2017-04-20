@@ -1,24 +1,31 @@
-<h2>Change your password</h2>
+<h3>Reset password</h3>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
   <%= f.hidden_field :reset_password_token %>
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: false, autocomplete: "off" %>
+  <div class="row">
+    <div class="medium-12 columns">
+      <%= f.label :password, "New password" %>
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+        <a onclick="return false" href="#" class="generate-random-password">Generate password</a>
+      <% end %>
+      <%= f.password_field :password, autofocus: false, autocomplete: "off" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class="row">
+    <div class="medium-12 columns">
+      <%= f.label :password_confirmation, "Confirm new password" %>
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Change my password" %>
+  <div class="row">
+    <div class="medium-12 columns">
+      <%= f.submit "Reset password", class: 'button' %>
+    </div>
   </div>
 <% end %>
 
