@@ -43,8 +43,26 @@
 
   <div class="row">
     <div class="large-12 columns">
+      <div class="callout">
+        <p>
+          Enclose words in <code>[</code> <code>]</code> to link to other words, even if it is not yet present in the database.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-12 columns">
       <%= f.label :example %>
       <%= f.text_area :example, rows: 5, required: true %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="callout">
+        <input type="checkbox" id="agreement" required="true" style="margin: 0"><label for="agreement">I agree to the Privacy Policy</label>
+      </div>
     </div>
   </div>
 
