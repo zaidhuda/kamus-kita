@@ -4,6 +4,9 @@ class VotesController < ApplicationController
 
   def index
     @definition = Definition.includes(:word).where.not(id: current_user.votes.pluck(:definition_id)).take(1).first
+
+    set_meta_tags title: 'Vote word',
+                  description: 'Fun way to enjoy KamusKita.'
   end
 
   def like
