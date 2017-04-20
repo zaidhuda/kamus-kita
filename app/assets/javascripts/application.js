@@ -19,7 +19,9 @@
 //= require lightsaber
 //= require foundation.core
 //= require foundation.dropdownMenu
+//= require foundation.sticky
 //= require foundation.util.keyboard
+//= require foundation.util.triggers
 //= require foundation.util.box
 //= require foundation.util.mediaQuery
 //= require foundation.util.nest

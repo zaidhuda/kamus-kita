@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="columns medium-9">
+    <h3>Frquently Asked Question</h3>
+    <% @faq_categories.each do |category| %>
+      <% category.second.each do |item| %>
+        <hr>
+        <div id='<%= "#{category.first}_#{item.first}" %>'>
+          <h5><%= item.second[:question] %></h5>
+          <p><%= item.second[:answer] %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="columns medium-3">
+    <div data-sticky-container>
+      <div class="title-bar" data-sticky data-options="marginTop:0;" style="width:100%" data-top-anchor="110">
+          <ul class="menu vertical">
+          <% @faq_categories.each do |category| %>
+            <% category.second.each do |item| %>
+              <li><a href="#<%= "#{category.first}_#{item.first}" %>"><%= "#{category.first.to_s.humanize} #{item.first.to_s.humanize.downcase}" %></a></li>
+            <% end %>
+          <% end %>
+          </ul>
+      </div>
+    </div>
+  </div>
+</div>

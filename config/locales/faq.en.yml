@@ -1,0 +1,38 @@
+en:
+  faq:
+    users:
+      email:
+        question: Why do I need to provide my email?
+        answer: We need your email address for password recovery.
+      handle:
+        question: what is handle?
+        answer: We used the handle to identify users. You can virtually put anything between 4 and 32 characters length. However, users may appear to have same handles.
+      password:
+        question: What does generate password do? Is it saving the password for me?
+        answer: We provide the generate password function for users to quickly create an account without having to think of a secure password. We do not store your passwords for you. If you lost your password, simply go to reset password page.
+      cancel_account:
+        question: What happen when I cancel my account?
+        answer: When you cancel your account, we will ONLY remove your email and handle from the records. All submission and votes will be left intact. If you have a trouble regarding any of your submission, please contact us directly.
+      points:
+        question: What is points in user page?
+        answer: The points are the total number of submissions, votes, and likes received, minus the minimum of 2x of likes received and dislikes received.
+    defintions:
+      word:
+        question: What word can I submit?
+        answer: You can submit any word that you have ever used or come across in life. It doesn't matter even if you created it. You can submit new definitions for existing words too if you think the present definitions lacking.
+      defintion:
+        question: What should I put in word definition?
+        answer: Describe about how, why and when it's used. Write what you know about the word, especially how you would use it.
+      example:
+        question: What example should I give?
+        answer: Give as many examples you can on how the word is used especially if you're inventing a new word because only you know it.
+    votes:
+      like:
+        question: Why should I like a definition? What happens if I do?
+        answer: If you like what you read, like it. The most liked definitions will be used by default to define the word.
+      dislike:
+        question: Why should I dislike a definition? What happens if I do?
+        answer: If you think the definition is not useful/helpful, dislike it. Disliking a word gives penalty to the submitter, and make it less likely to be used by default to define the word.
+      ignore:
+        question: Why should I ignore a definition? What happens if I do?
+        answer: When you don't care. Nothing happens. You can change your vote at any time.
