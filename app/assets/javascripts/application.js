@@ -26,7 +26,7 @@
 //= require nprogress
 //= require nprogress-turbolinks
 
-$(document).on('turbolinks:load', function() {
+$(document).on('turbolinks:load ready', function() {
   $(document).foundation();
   passwordGen();
   prepareSnackbarContainer();
