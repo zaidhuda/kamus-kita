@@ -13,14 +13,14 @@
 
   <body>
     <%= render 'layouts/partials/header', searchable: true %>
-    <main>
-      <%= render 'layouts/partials/notice' %>
-      <div class="row">
-        <div class="medium-12 columns">
-          <%= yield %>
-        </div>
+    <div class="row">
+      <div class="medium-12 columns">
+        <%= render 'layouts/partials/notice' %>
+          <main>
+            <%= yield %>
+          </main>
+        <%= render 'layouts/partials/footer' %>
       </div>
-    </main>
-    <%= render 'layouts/partials/footer' %>
+    </div>
   </body>
 </html>

@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'random', to: 'random#index'
   get 'privacy', to: 'legal#privacy'
   get 'tos', to: 'legal#tos'
+  get 'remove', to: 'legal#remove'
+  get 'help', to: 'legal#help'
 
   scope :vote, as: :vote do
     get '/', to: 'votes#index'
