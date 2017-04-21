@@ -5,10 +5,12 @@ module ApplicationHelper
       title: '',
       reverse: true,
       description: 'Kamus sempoi untuk bahasa borak',
+      image: "#{root_url}apple-icon.png",
       twitter: {
         card: "summary",
         title: :title,
-        description: :description
+        description: :description,
+        image: { _: "#{root_url}apple-icon.png" }
       }
     }
   end
