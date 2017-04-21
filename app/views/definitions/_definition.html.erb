@@ -1,6 +1,6 @@
 <% word ||= definition.word %>
 
-<div class="callout">
+<div class="callout definition">
   <%=  link_to definition.created_at.strftime('%d %B %Y'), word_definition_path(word, definition), class: "text-color-gray" %>
   <h1><%= link_to definition.original_word, word_path(word) %></h1>
   <p class='pre-line'><%= parse_linked_words definition.definition %></p>
@@ -12,6 +12,7 @@
       by unknown
     <% end %>
   </p>
+
   <div class="definition-likes">
     <div class="ligtsaber-container">
       <%= render 'layouts/partials/lightsaber', likes: definition.likes_counter, dislikes: definition.dislikes_counter %>
@@ -27,17 +28,34 @@
       <span id="definition_<%= definition.id %>_dislikes"><%= definition.dislikes_counter %></span>
     <% end %>
   </div>
-  <div class="a2a_kit a2a_kit_size_24 a2a_default_style" data-a2a-icon-color="transparent,#f57c00" data-a2a-url="<%= word_definition_url(word, definition) %>" data-a2a-title="<%= a2a_title definition %>">
-    <%= link_to embed_settings_word_definition_path(word, definition, url: word_definition_path(word, definition), width: 500 ) do %>
-      <i class="material-icons">code</i>
-    <% end %>
-    <a class="def-url-clipboard-btn" data-clipboard-text="<%= word_definition_url(word, definition) %>"><i class="material-icons">link</i></a>
-    <a class="a2a_button_facebook"></a>
-    <a class="a2a_button_twitter"></a>
+
+  <div class="definition-actions">
+    <ul class="dropdown menu" data-dropdown-menu data-click-open="true" data-disable-hover="true" data-alignment="right" data-close-on-click="true">
+      <li>
+        <i class="material-icons text-color-light-gray pointer">more_vert</i>
+        <ul class="menu vertical is-dropdown-submenu">
+          <% if current_user == definition.user %>
+            <li><%= link_to 'Edit', edit_definition_path(definition) %></li>
+          <% elsif definition.user.id == guest_user_id_session %>
+            <li><%= link_to 'Login to edit', edit_definition_path(definition) %></li>
+          <% end %>
+
+          <li>
+            <a class="def-url-clipboard-btn" data-clipboard-text="<%= word_definition_url(word, definition) %>">Copy permalink</a>
+          </li>
+          <li>
+            <a class="share-links" data-url="<%= facebook_link definition.original_word, word_definition_url(word, definition) %>">Share to Facebook</a>
+          </li>
+          <li>
+            <a class="share-links" data-url="<%= twitter_link definition.original_word, word_definition_url(word, definition) %>">Share to Twitter</a>
+          </li>
+          <li>
+            <%= link_to embed_settings_word_definition_path(word, definition, url: word_definition_path(word, definition), width: 500 ) do %>
+              Embed to webpage
+            <% end %>
+          </li>
+        </ul>
+      </li>
+    </ul>
   </div>
-  <% if current_user == definition.user %>
-    <%= link_to 'Edit', edit_definition_path(definition), class: 'button secondary definition-edit-button' %>
-  <% elsif definition.user.id == guest_user_id_session %>
-    <%= link_to 'Login to edit', edit_definition_path(definition), class: 'button secondary definition-edit-button' %>
-  <% end %>
 </div>

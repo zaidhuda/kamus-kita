@@ -9,8 +9,6 @@ module DefinitionsHelper
       new_definition_path(word: params[:id])
     when 'definitions'
       new_definition_path(word: params[:word_id])
-    when 'search'
-      new_definition_path(word: params[:q])
     else
       new_definition_path
     end
@@ -23,5 +21,13 @@ module DefinitionsHelper
         link_to word, word_path(id: word.parameterize), link_options
       end
     }.html_safe
+  end
+
+  def facebook_link text, url
+    "https://www.facebook.com/sharer/sharer.php?t=#{text}&u=#{url}"
+  end
+
+  def twitter_link text, url
+    "https://twitter.com/intent/tweet?text=#{text}&url=#{url}&hashtags=kamuskita"
   end
 end

@@ -40,11 +40,16 @@ body, html {
   max-width: 768px;
 }
 
+main {
+  margin: 0;
+  padding: 0;
+}
+
 .callout {
   margin-bottom: 0;
 }
 
-.definition {
+.definition-details {
   margin-bottom: 0.48em;
   text-overflow: ellipsis;
   overflow: hidden;

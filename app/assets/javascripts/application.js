@@ -26,12 +26,12 @@
 //= require nprogress
 //= require nprogress-turbolinks
 
-$(document).on('turbolinks:load ready', function() {
+$(document).on('turbolinks:load', function() {
   $(document).foundation();
   passwordGen();
   prepareSnackbarContainer();
+  initShareLinks();
   activateClipboard();
-  initA2A();
   $('.lightsabers').lightsaber();
 });
 
@@ -73,8 +73,18 @@ var activateClipboard = function() {
   })
 }
 
-var initA2A = function() {
-  try {
-    a2a.init_all();
-  } catch (e) {}
+var initShareLinks = function() {
+  $('.share-links').on('click', function() {
+    var url = $(this).data('url');
+    var shareWindow = PopupCenter(url, 'Share', 500, 400);
+    if (window.focus) { shareWindow.focus() }
+    return false;
+  })
 }
+
+var PopupCenter = function(pageURL, title,w,h) {
+  var left = (screen.width/2)-(w/2);
+  var top = (screen.height/2)-(h/2);
+  var targetWin = window.open (pageURL, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
+  return targetWin;
+} 

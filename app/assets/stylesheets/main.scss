@@ -3,6 +3,10 @@ main {
   padding-bottom: 50px;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 .contain-to-grid {
     padding: 0 8px;
 }
@@ -35,14 +39,16 @@ main {
   margin-right: 0 !important;
 }
 
-.a2a_kit {
+@media only screen and (max-width: 40.0625em) {
+  .definition .material-icons {
+    font-size: 18px;
+  }
+}
+
+.definition-actions {
   position: absolute;
   top: 16px;
   right: 16px;
-}
-
-.a2a_label {
-  display: none;
 }
 
 .definition-likes .icons {
