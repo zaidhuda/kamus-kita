@@ -1,6 +1,6 @@
 <div class="row">
-  <div class="columns large-4 large-push-8">
-    <div class="callout">
+  <div class="columns medium-8 ">
+    <div class="callout show-for-small-only">
       <h5><%= @user.handle %></h5>
       <p>
         <span class="text-color-primary" title="Significant votes plus significant submitted definitions likes"><%= pluralize(@user.points, 'Point') %></span>
@@ -10,8 +10,7 @@
         <span class="text-color-gray">Submitted</span> <%= pluralize(@definitions.size, 'definition') %>
       </p>
     </div>
-  </div>
-  <div class="columns large-8 large-pull-4">
+
     <% if @definitions.present? %>
       <% @definitions.each do |definition| %>
         <%= render 'words/word', word: definition.word, definition: definition %>
@@ -20,5 +19,20 @@
     <% else %>
       <h4>No definition posted</h4>
     <% end %>
+  </div>
+
+  <div class="columns medium-4">
+    <div class="callout show-for-medium">
+      <h5><%= @user.handle %></h5>
+      <p>
+        <span class="text-color-primary" title="Significant votes plus significant submitted definitions likes"><%= pluralize(@user.points, 'Point') %></span>
+        <br/>
+        <span class="text-color-gray">Joined</span> <%= @user.created_at.strftime('%d %B %Y') %>
+        <br/>
+        <span class="text-color-gray">Submitted</span> <%= pluralize(@definitions.size, 'definition') %>
+      </p>
+    </div>
+
+    <%= render partial: 'layouts/partials/footer' %>
   </div>
 </div>

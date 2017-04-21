@@ -1,9 +1,17 @@
-<% if @word_not_found %>
-  <h4>No record for <em><%= params[:id] %></em>, checkout <em><%= @word.word %></em> or <%= link_to 'add your definition', new_word_definition_path %></h4>
-<% end %>
-<% @definitions.each do |definition| %>
-  <%= render 'definitions/definition', definition: definition, word: @word %>
-<% end %>
-<%= paginate @definitions %>
+<div class="row">
+  <div class="medium-8 columns">
+    <% if @word_not_found %>
+      <h4>No record for <em><%= params[:id] %></em>, checkout <em><%= @word.word %></em> or <%= link_to 'add your definition', new_word_definition_path %></h4>
+    <% end %>
+    <% @definitions.each do |definition| %>
+      <%= render 'definitions/definition', definition: definition, word: @word %>
+    <% end %>
+    <%= paginate @definitions %>
 
-<%= render partial: 'layouts/partials/randomizer' %>
+    <%= render partial: 'layouts/partials/randomizer' %>
+  </div>
+
+  <div class="medium-4 columns">
+    <%= render partial: 'layouts/partials/footer' %>
+  </div>
+</div>

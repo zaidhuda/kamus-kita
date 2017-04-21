@@ -1,6 +1,14 @@
-<% @words.each do |word| %>
-  <%= render 'words/word', word: word, definition: word.best_definition %>
-<% end %>
-<%= paginate @words %>
+<div class="row">
+  <div class="medium-8 columns">
+    <% @words.each do |word| %>
+      <%= render 'words/word', word: word, definition: word.best_definition %>
+    <% end %>
+    <%= paginate @words %>
 
-<%= render partial: 'layouts/partials/randomizer' %>
+    <%= render partial: 'layouts/partials/randomizer' %>
+  </div>
+
+  <div class="medium-4 columns">
+    <%= render partial: 'layouts/partials/footer' %>
+  </div>
+</div>

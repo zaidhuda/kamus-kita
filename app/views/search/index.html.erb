@@ -1,12 +1,20 @@
-<% if @definitions.present? %>
-  <% @definitions.each do |definition| %>
-    <%= render 'words/word', word: definition.word, definition: definition %>
-  <% end %>
-  <%= paginate @definitions %>
-<% else %>
-  <h4>Could not find <em><%= params[:q] %></em>, checkout <em><%= @random_word.word %></em> or <%= link_to 'add your definition', new_word_definition_path %></h4>
+<div class="row">
+  <div class="medium-8 columns">
+    <% if @definitions.present? %>
+      <% @definitions.each do |definition| %>
+        <%= render 'words/word', word: definition.word, definition: definition %>
+      <% end %>
+      <%= paginate @definitions %>
+    <% else %>
+      <h4>Could not find <em><%= params[:q] %></em>, checkout <em><%= @random_word.word %></em> or <%= link_to 'add your definition', new_word_definition_path %></h4>
 
-  <%= render 'words/word', word: @random_word, definition: @random_word.best_definition %>
-<% end %>
+      <%= render 'words/word', word: @random_word, definition: @random_word.best_definition %>
+    <% end %>
 
-<%= render partial: 'layouts/partials/randomizer' %>
+    <%= render partial: 'layouts/partials/randomizer' %>
+  </div>
+
+  <div class="medium-4 columns">
+    <%= render partial: 'layouts/partials/footer' %>
+  </div>
+</div>

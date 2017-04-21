@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="medium-12 columns">
+  <div class="medium-8 columns">
     <div class="callout">
       <ul class="words-list">
         <% @words.each do |word| %>
@@ -7,5 +7,9 @@
         <% end %>
       </ul>
     </div>
+  </div>
+
+  <div class="medium-4 columns">
+    <%= render partial: 'layouts/partials/footer' %>
   </div>
 </div>

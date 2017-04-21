@@ -1,13 +1,21 @@
-<% if @definition.user.id == guest_user_id_session %>
-  <div class="callout secondary">
-    <h6> 
-      <%= link_to 'Login', new_user_session_path %>
-      or
-      <%= link_to 'sign up', new_user_registration_path %>
-      now to claim this definition.
-    </h6>
-  </div>
-<% end %>
+<div class="row">
+  <div class="medium-8 columns">
+    <% if @definition.user.id == guest_user_id_session %>
+      <div class="callout secondary">
+        <h6>
+          <%= link_to 'Login', new_user_session_path %>
+          or
+          <%= link_to 'sign up', new_user_registration_path %>
+          now to claim this definition.
+        </h6>
+      </div>
+    <% end %>
 
-<%= render 'definitions/definition', definition: @definition %>
-<%= render partial: 'layouts/partials/randomizer' %>
+    <%= render 'definitions/definition', definition: @definition %>
+    <%= render partial: 'layouts/partials/randomizer' %>
+  </div>
+
+  <div class="medium-4 columns">
+    <%= render partial: 'layouts/partials/footer' %>
+  </div>
+</div>
