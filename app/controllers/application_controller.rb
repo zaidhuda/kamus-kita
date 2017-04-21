@@ -29,6 +29,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def default_url_options(options={})
+    { secure: true }
+  end
+
   private
 
   def belongings_handover
