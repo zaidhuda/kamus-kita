@@ -25,6 +25,7 @@ gem 'friendly_id'
 gem 'kaminari'
 gem 'meta-tags'
 gem 'sitemap_generator'
+gem 'carrierwave', '~> 1.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri

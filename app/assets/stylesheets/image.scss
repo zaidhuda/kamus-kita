@@ -1,0 +1,70 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require snackbar.min
+ *= require snackbar-material
+ *= require lightsaber
+ *= require main
+ *= require_self
+ */
+
+@import 'settings';
+$global-font-size: 200%;
+$header-styles: (
+  small: (
+    'h1': ('font-size': 48),
+  ),
+);
+
+$body-font-family: 'Droid Serif', sans-serif;
+$header-font-family: 'Roboto Slab', serif;
+@import 'foundation';
+
+@include foundation-global-styles;
+@include foundation-typography;
+@include foundation-callout;
+
+@each $name, $color in $foundation-palette {
+  .text-color-#{$name} { color:$color; }
+}
+
+body {
+  background: $white;
+  width: 1024px;
+  height: 1024px;
+  padding: 100px;
+  position: relative;
+  border: 1px solid $light-gray;
+}
+
+h1 {
+  line-height: 1;
+  margin-top: -15px;
+  height: 150px;
+  margin-bottom: 50px;
+}
+
+p {
+  height: 486px;
+  margin-bottom: 50px;
+  line-height: 1.2;
+  text-align: justify;
+}
+
+footer {
+  bottom: 0;
+  text-align: center;
+}
+
+footer img {
+  width: 100px;
+}

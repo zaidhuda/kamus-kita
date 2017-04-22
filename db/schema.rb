@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170418133128) do
+ActiveRecord::Schema.define(version: 20170422031719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,15 +24,14 @@ ActiveRecord::Schema.define(version: 20170418133128) do
     t.datetime "created_at",                                          null: false
     t.datetime "updated_at",                                          null: false
     t.boolean  "hidden",              default: false
-    t.integer  "likes_counter",       default: 0,                     null: false
-    t.integer  "dislikes_counter",    default: 0,                     null: false
     t.string   "original_word"
-    t.datetime "counters_updated_at", default: '2017-04-19 02:07:48'
+    t.integer  "dislikes_counter",    default: 0
+    t.integer  "likes_counter",       default: 0
+    t.datetime "counters_updated_at", default: '2017-04-18 13:40:12'
+    t.string   "image"
     t.index ["counters_updated_at"], name: "index_definitions_on_counters_updated_at", using: :btree
     t.index ["hidden"], name: "index_definitions_on_hidden", using: :btree
     t.index ["user_id"], name: "index_definitions_on_user_id", using: :btree
-    t.index ["word_id", "dislikes_counter"], name: "index_definitions_on_word_id_and_dislikes_counter", using: :btree
-    t.index ["word_id", "likes_counter"], name: "index_definitions_on_word_id_and_likes_counter", using: :btree
     t.index ["word_id"], name: "index_definitions_on_word_id", using: :btree
   end
 

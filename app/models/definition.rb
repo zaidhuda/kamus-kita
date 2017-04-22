@@ -3,6 +3,8 @@ class Definition < ApplicationRecord
   belongs_to :word
   has_many :votes
 
+  mount_uploader :image, ImageUploader
+
   before_validation :find_or_create_word
 
   validates_presence_of :user_id, :word_id, :original_word, :definition, :example

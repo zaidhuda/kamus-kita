@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       member do
         get 'embed', to: 'embed#show'
         get 'embed_settings', to: 'embed#embed_settings'
+        get :image, to: 'image#show'
       end
     end
   end
