@@ -37,7 +37,7 @@ class Definition < ApplicationRecord
         definition: self
       })
     kit = IMGKit.new(html.html_safe, quality: 70)
-    filename = "#{Rails.root.join}/tmp/#{Digest::MD5.hexdigest(updated_at||created_at)}.png"
+    filename = "#{Rails.root.join}/tmp/#{Digest::MD5.hexdigest(updated_at.to_s||created_at.to_s)}.png"
     temp_file = kit.to_file(filename)
     self.image = temp_file
     self.image_generated_at = Time.now
