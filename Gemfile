@@ -26,6 +26,7 @@ gem 'kaminari'
 gem 'meta-tags'
 gem 'sitemap_generator'
 
+gem 'fog-aws'
 gem 'carrierwave', '~> 1.0'
 gem 'imgkit'
 gem 'wkhtmltoimage-binary'
