@@ -7,7 +7,16 @@ class DefinitionsController < ApplicationController
     @definition = Definition.find(params[:id])
 
     set_meta_tags title: @definition.original_word,
-                  description: @definition.cleaned_definition.truncate(160)
+      description: @definition.cleaned_definition.truncate(160),
+      image: image_word_definition_url(params[:word_id], params[:id], format: :png),
+      og: {
+        image: image_word_definition_url(params[:word_id], params[:id], format: :png)
+      },
+      twitter: {
+        image: {
+          _: image_word_definition_url(params[:word_id], params[:id], format: :png)
+        }
+      }
   end
 
   def new
