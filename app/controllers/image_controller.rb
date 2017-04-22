@@ -3,8 +3,7 @@ class ImageController < ApplicationController
   def show
     @definition = Definition.find(params[:id])
     @definition.generate_image "#{request.protocol}#{request.host}"
-    # redirect_to @definition.image.url
-    render json: @definition.image.url
+    redirect_to @definition.image.url
   end
 
   def new
