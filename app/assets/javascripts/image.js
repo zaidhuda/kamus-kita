@@ -18,7 +18,7 @@ $(document).on('ready', function() {
     maxFontPixels: 100
   });
   $("#definition").textfill({
-    maxFontPixels: 48
+    maxFontPixels: 40
   });
 });
 
