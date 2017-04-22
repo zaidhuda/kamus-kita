@@ -15,12 +15,11 @@
 
 $(document).on('ready', function() {
   $("#title").textfill({
-    maxFontPixels: 130
+    maxFontPixels: 100
   });
   $("#definition").textfill({
-    maxFontPixels: 56
+    maxFontPixels: 48
   });
-  console.log("wtf")
 });
 
 var link=document.createElement('link');

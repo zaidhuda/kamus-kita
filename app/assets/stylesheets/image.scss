@@ -13,46 +13,63 @@
  *= require_self
  */
 
-@import 'settings';
-$global-font-size: 200%;
-$header-styles: (
-  small: (
-    'h1': ('font-size': 48),
-  ),
-);
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
 
-$body-font-family: 'Droid Serif', sans-serif;
-$header-font-family: 'Roboto Slab', serif;
-@import 'foundation';
-
-@include foundation-global-styles;
-@include foundation-typography;
-
-@each $name, $color in $foundation-palette {
-  .text-color-#{$name} { color:$color; }
+html, body, div, span,
+h1, h2, h3, h4, h5, h6, p,
+a, img, footer {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
+body {
+	line-height: 1;
+}
+
+@import 'settings';
 
 body {
   background: $white;
-  width: 1024px;
-  height: 1024px;
+  width: 804px;
+  height: 804px;
+  margin: 0;
   padding: 100px;
   position: relative;
-  border: 1px solid $light-gray;
+  border: 10px solid $dark-gray;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Droid Serif', sans-serif;
+  letter-spacing: 0px;
+}
+
+h1, a {
+  color: $primary-color;
 }
 
 h1 {
+  height: 140px;
+  width: 804px;
   line-height: 1;
-  margin-top: -15px;
-  height: 150px;
+  margin-top: -5px;
   margin-bottom: 50px;
+  text-align: center;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
 }
 
 p {
-  height: 486px;
+  height: 469px;
+  width: 804px;
   margin-bottom: 50px;
   line-height: 1.2;
   text-align: justify;
+  text-rendering: optimizeSpeed;
+  font-weight: 400;
 }
 
 footer {

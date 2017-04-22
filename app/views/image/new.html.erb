@@ -8,12 +8,10 @@
   </head>
 
   <body>
-    <div class="image">
-      <h1 id="title" class="text-color-primary text-center"><span><%= definition.original_word.truncate(100, separator: /\s/, omission: '') %></span></h1>
-      <p id="definition"><span><%= fake_parse_linked_words(definition.definition.truncate(500, separator: /\s/)) %></span></p>
-      <footer>
-        <img src="<%= root_url %>/logo-alt-dark-small.png"/>
-      </footer>
-    </div>
+    <h1 id="title" class="text-color-primary text-center"><span><%= definition.original_word.truncate(100, separator: /\s/, omission: '') %></span></h1>
+    <p id="definition"><span><%= fake_parse_linked_words(definition.definition.truncate(500, separator: /\s/)) %></span></p>
+    <footer>
+      <img src="<%= root_url %>/logo-alt-dark-small.png"/>
+    </footer>
   </body>
 </html>
