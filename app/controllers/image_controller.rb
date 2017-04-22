@@ -2,7 +2,7 @@ class ImageController < ApplicationController
   layout false
   def show
     @definition = Definition.find(params[:id])
-    @definition.generate_image "#{request.protocol}#{request.host}"
+    @definition.generate_image_helper "#{request.protocol}#{request.host}"
     redirect_to @definition.image.url
   end
 
