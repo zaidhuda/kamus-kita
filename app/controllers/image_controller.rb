@@ -23,7 +23,7 @@ class ImageController < ApplicationController
   private
 
   def logo
-    image = open(Rails.root.join("public/logo-large.png"))
+    image = open(Rails.root.join("public/logo-small.png"))
     send_data image.read, filename: "logo-large.png", disposition: 'inline',  stream: 'true', buffer_size: '4096'
   end
 end
