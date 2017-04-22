@@ -1,0 +1,19 @@
+<% definition ||= @definition %>
+<!DOCTYPE html>
+<html lang="ms">
+  <head>
+    <% ActionController::Base.asset_host = root_url %>
+    <%= stylesheet_link_tag    'image' %>
+    <%= javascript_include_tag javascript_url 'image' %>
+  </head>
+
+  <body>
+    <div class="image">
+      <h1 id="title" class="text-color-primary text-center"><span><%= definition.original_word.truncate(100, separator: /\s/, omission: '') %></span></h1>
+      <p id="definition"><span><%= fake_parse_linked_words(definition.definition.truncate(500, separator: /\s/)) %></span></p>
+      <footer>
+        <img src="<%= root_url %>/logo-alt-dark-small.png"/>
+      </footer>
+    </div>
+  </body>
+</html>

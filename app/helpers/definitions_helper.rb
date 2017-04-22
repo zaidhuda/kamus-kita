@@ -23,6 +23,15 @@ module DefinitionsHelper
     }.html_safe
   end
 
+  def fake_parse_linked_words definition
+    definition.gsub(/\[.*?\]/){ |s|
+      word = s[1..s.size-2] if s.size > 2
+      if word
+        "<a>#{word}</a>"
+      end
+    }.html_safe
+  end
+
   def facebook_link text, url
     "https://www.facebook.com/sharer/sharer.php?t=#{text}&u=#{url}"
   end

@@ -25,7 +25,10 @@ gem 'friendly_id'
 gem 'kaminari'
 gem 'meta-tags'
 gem 'sitemap_generator'
+
 gem 'carrierwave', '~> 1.0'
+gem 'imgkit'
+gem 'wkhtmltoimage-binary'
 
 group :development, :test do
   gem 'byebug', platform: :mri
