@@ -16,15 +16,6 @@ class WordsController < ApplicationController
                     .page params[:page]
 
     set_meta_tags title: @word.word,
-      description: @word.best_definition.cleaned_definition.truncate(160),
-      image: image_word_definition_url(params[:id], @word.best_definition, format: :png),
-      og: {
-        image: image_word_definition_url(params[:id], @word.best_definition, format: :png)
-      },
-      twitter: {
-        image: {
-          _: image_word_definition_url(params[:id], @word.best_definition, format: :png)
-        }
-      }
+      description: @word.best_definition.cleaned_definition.truncate(160)
   end
 end

@@ -7,12 +7,11 @@ class ImageController < ApplicationController
     image = open(@definition.image.url)
     send_data image.read, filename: "#{@definition.original_word}.png", type: image.content_type, disposition: 'inline',  stream: 'true', buffer_size: '4096'
   rescue OpenURI::HTTPError
-    @definition.generate_image "#{request.protocol}#{request.host}"
-    logo
-  ensure
-    response.headers["Cache-Control"] = "no-cache, no-store"
-    response.headers["Pragma"] = "no-cache"
-    response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
+    if @definition.generate_image "#{request.protocol}#{request.host}"
+      redirect_to image_word_definition_path(params[:word_id], params[:id])
+    else
+      logo
+    end
   end
 
   def new

@@ -5,16 +5,7 @@ class EmbedController < ApplicationController
 
     set_meta_tags title: @definition.original_word,
       description: @definition.cleaned_definition.truncate(160),
-      canonical: word_definition_url(@definition.word, @definition),
-      image: image_word_definition_url(params[:word_id], params[:id], format: :png),
-      og: {
-        image: image_word_definition_url(params[:word_id], params[:id], format: :png)
-      },
-      twitter: {
-        image: {
-          _: image_word_definition_url(params[:word_id], params[:id], format: :png)
-        }
-      }
+      canonical: word_definition_url(@definition.word, @definition)
 
     response.headers.delete "X-Frame-Options"
   end
