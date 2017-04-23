@@ -2,12 +2,23 @@ require 'rubygems'
 require 'sitemap_generator'
 
 SitemapGenerator::Sitemap.default_host = ENV['HOST_NAME']
+SitemapGenerator::Sitemap.sitemaps_host = ENV['AWS_REMOTE_HOST']
+SitemapGenerator::Sitemap.public_path = 'tmp/'
+SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
+SitemapGenerator::Sitemap.adapter = SitemapGenerator::WaveAdapter.new
+
 SitemapGenerator::Sitemap.create do
-  add browse_path
   add search_path
+  add browse_path
+  add random_path
+  add privacy_path
+  add tos_path
+  add remove_path
+  # add help_path
+  add vote_path
   add new_user_registration_path
   Word.find_each do |word|
-    add word_path(word), lastmod: word.updated_at
+    add word_path(word), lastmod: word.best_definition.created_at
   end
 end
 # SitemapGenerator::Sitemap.ping_search_engines # Not needed if you use the rake tasks

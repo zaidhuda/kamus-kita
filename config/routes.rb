@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 
   resources :users, path: :u, only: [:show, :edit, :update]
 
-  get 'sitemap', to: 'sitemap#index'
   get 'search', to: 'search#index'
   get 'browse', to: 'browse#index'
   get 'random', to: 'random#index'
