@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'sitemap_generator'
 
-SitemapGenerator::Sitemap.default_host = 'https://kamuskita.zaidhuda.com'
+SitemapGenerator::Sitemap.default_host = ENV['HOST_NAME']
 SitemapGenerator::Sitemap.create do
   add browse_path
   add search_path
