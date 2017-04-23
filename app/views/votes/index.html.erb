@@ -4,8 +4,8 @@
       <h3>Should this be in <strong>Kamus</strong>Kita?</h3>
       <div class="callout">
         <h1><%= link_to @definition.original_word, word_path(@definition.word) %></h1>
-        <p class='pre-line'><%= @definition.definition %></p>
-        <p class='pre-line'><em><%= @definition.example %></em></p>
+        <p class='pre-line'><%= parse_linked_words @definition.definition %></p>
+        <p class='pre-line'><em><%= parse_linked_words @definition.example %></em></p>
         <p>
           <% if @definition.user %>
             by <%= link_to @definition.user.handle, @definition.user %>
@@ -21,7 +21,7 @@
               <i class="material-icons">thumb_down</i>
             <% end %>
             <%= link_to vote_ignore_path(@definition), method: :post, class: 'button light-gray' do %>
-              <i class="material-icons">clear</i>
+              <i class="material-icons">visibility_off</i>
             <% end %>
             <%= link_to vote_like_path(@definition), method: :post, class: 'button success' do %>
               <i class="material-icons">thumb_up</i>
