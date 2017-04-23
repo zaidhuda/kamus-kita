@@ -12,13 +12,13 @@ class WordsController < ApplicationController
         description: @word.best_definition.cleaned_definition.truncate(160)
     rescue ActiveRecord::RecordNotFound
       @word_not_found = true
-      @word = Word.includes(:best_definition).offset(rand(Word.count)).first
+      # @word = Word.includes(:best_definition).offset(rand(Word.count)).first
 
       set_meta_tags title: params[:id],
         canonical: new_definition_url(word: params[:id]),
         description: "There is no definition for #{params[:id]}. Submit yours?"
     end
-    @definitions = Definition.where(word_id: @word.id)
+    @definitions = Definition.where(word_id: params[:id])
                     .includes(:user, :word)
                     .order(likes_counter: :desc, created_at: :desc)
                     .page params[:page]

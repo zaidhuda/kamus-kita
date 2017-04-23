@@ -6,9 +6,9 @@
       <% end %>
       <%= paginate @definitions %>
     <% else %>
-      <h4>Could not find <em><%= params[:q] %></em>, checkout <em><%= @random_word.word %></em> or <%= link_to 'add your definition', new_word_definition_path %></h4>
+      <h4>Could not find <code><%= params[:q] %></code>, <%= link_to 'add definition', new_word_definition_path %></h4>
 
-      <%= render 'words/word', word: @random_word, definition: @random_word.best_definition %>
+      <%#= render 'words/word', word: @random_word, definition: @random_word.best_definition %>
     <% end %>
 
     <%= render partial: 'layouts/partials/randomizer' %>
