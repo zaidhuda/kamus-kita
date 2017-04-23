@@ -8,7 +8,8 @@ class UsersController < ApplicationController
       .order(likes_counter: :desc, created_at: :desc)
       .page params[:page]
 
-    set_meta_tags title: @user.handle
+    set_meta_tags title: @user.handle,
+      description: "Submitted #{@definitions.size} #{ 'definition'.pluralize(@definitions.size)}"
   end
 
   def edit
