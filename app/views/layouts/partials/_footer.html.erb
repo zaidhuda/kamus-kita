@@ -1,5 +1,20 @@
 <footer>
-  <%#= link_to 'terms of service', tos_path %>
-  <%= link_to 'browse', browse_path %>
-  <%= link_to 'privacy', privacy_path %>
+  <div class="row">
+    <div class="columns small-12">
+      <%= link_to 'Add definition', new_definition_path, class: 'button jumbo' %>
+    </div>
+  </div>
+	<div class="row">
+    <div class="columns small-12">
+      <div class="expanded button-group">
+        <%= link_to 'facebook', 'https://facebook.com/kamuskita', class: 'button facebook' %>
+        <%= link_to 'twitter', 'https://twitter.com/twtkamuskita', class: 'button twitter' %>
+      </div>
+    </div>
+  </div>
+  <div class="text-center links">
+    <%#= link_to 'terms of service', tos_path %>
+    <%= link_to 'browse', browse_path %>
+    <%= link_to 'privacy', privacy_path %>
+  </div>
 </footer>

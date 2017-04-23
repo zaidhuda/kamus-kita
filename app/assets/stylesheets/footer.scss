@@ -1,9 +1,17 @@
 @import 'settings';
 
-footer {
-  text-align: center;
-}
 footer * {
-  margin: 0 3px;
   color: $light-gray;
+}
+
+footer .links {
+  word-spacing: 5px;
+}
+
+footer .facebook {
+  background: #3b5998;
+}
+
+footer .twitter {
+  background: #1DA1F2;
 }
