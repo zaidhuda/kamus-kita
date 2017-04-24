@@ -31,6 +31,8 @@ gem 'carrierwave', '~> 1.0'
 gem 'imgkit'
 gem 'wkhtmltoimage-binary'
 
+gem 'mailgun_rails'
+
 group :development, :test do
   gem 'byebug', platform: :mri
 end
