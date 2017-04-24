@@ -4,8 +4,8 @@ footer * {
   color: $light-gray;
 }
 
-footer .links {
-  word-spacing: 5px;
+footer .links a {
+  margin: 0 3px;
 }
 
 footer .facebook {
