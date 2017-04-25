@@ -6,10 +6,5 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-anon = User.find_or_initialize_by(
-        email: 'anonymous@fake.email', 
-        handle: 'Anonymous'
-      )
-anon.save(validate: false)
-anon.slug = 'anonymous'.freeze
-anon.save!
+password = SecureRandom.base64
+AdminUser.create!(email: 'admin@kamuskita.online', password: 'long admin password', password_confirmation: 'long admin password')

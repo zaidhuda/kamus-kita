@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   default_url_options Rails.application.config.action_mailer.default_url_options
 
   devise_for :users, path: '/',
