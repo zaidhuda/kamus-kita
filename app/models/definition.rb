@@ -1,4 +1,8 @@
 class Definition < ApplicationRecord
+  include PgSearch
+  pg_search_scope :search_for, against: [:original_word, :definition],
+    using: {trigram: { only: :original_word }, tsearch: { any_word: true }}
+
   belongs_to :user
   belongs_to :word
   has_many :votes

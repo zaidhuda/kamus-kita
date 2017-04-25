@@ -1,11 +1,6 @@
 class SearchController < ApplicationController
   def index
-    @definitions = Definition
-                    .includes(:user, :word)
-                    .where("original_word ILIKE ?", "#{params[:q]}%")
-                    .order(likes_counter: :desc, created_at: :desc)
-                    .page params[:page]
-    # @random_word = Word.offset(rand(Word.count)).first
+    @definitions = Definition.search_for(params[:q]).page(params[:page])
 
     set_meta_tags title: 'Search',
                   description: 'Search words'

@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170422031719) do
+ActiveRecord::Schema.define(version: 20170425103022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "citext"
+  enable_extension "pg_trgm"
 
   create_table "definitions", force: :cascade do |t|
     t.integer  "user_id"
@@ -27,7 +28,7 @@ ActiveRecord::Schema.define(version: 20170422031719) do
     t.integer  "likes_counter",       default: 0,                     null: false
     t.integer  "dislikes_counter",    default: 0,                     null: false
     t.string   "original_word"
-    t.datetime "counters_updated_at", default: '2017-04-23 11:45:35'
+    t.datetime "counters_updated_at", default: '2017-04-19 02:07:48'
     t.string   "image"
     t.datetime "image_generated_at"
     t.index ["counters_updated_at"], name: "index_definitions_on_counters_updated_at", using: :btree

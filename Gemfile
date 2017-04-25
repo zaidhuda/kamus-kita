@@ -7,8 +7,11 @@ end
 
 
 gem 'rails', '~> 5.0.2'
-gem 'pg'
 gem 'puma', '~> 3.0'
+
+gem 'pg'
+gem 'pg_search'
+
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
@@ -21,6 +24,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'clipboard-rails'
 
 gem 'devise'
+gem 'mailgun_rails'
+
 gem 'friendly_id'
 gem 'kaminari'
 gem 'meta-tags'
@@ -30,8 +35,6 @@ gem 'fog-aws'
 gem 'carrierwave', '~> 1.0'
 gem 'imgkit'
 gem 'wkhtmltoimage-binary'
-
-gem 'mailgun_rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri
