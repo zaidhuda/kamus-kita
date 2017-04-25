@@ -7,4 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 password = SecureRandom.base64
-AdminUser.create!(email: 'admin@kamuskita.online', password: 'long admin password', password_confirmation: 'long admin password')
+AdminUser.create!(email: 'admin@kamuskita.online', password: password, password_confirmation: password)
