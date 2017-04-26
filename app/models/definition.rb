@@ -14,6 +14,8 @@ class Definition < ApplicationRecord
   validates_presence_of :user_id, :word_id, :original_word, :definition, :example
   validates_length_of :original_word, maximum: 50
 
+  after_commit :generate_image_and_tweet
+
   def self.votes
     self.select("user_id, SUM(likes_counter) as likes, SUM(dislikes_counter) as dislikes").group(:user_id)[0]
   end
@@ -30,6 +32,15 @@ class Definition < ApplicationRecord
   def generate_image_helper host
     if updated_at.to_i > image_generated_at.to_i
       generate_image host
+    end
+  end
+
+  def generate_image_and_tweet
+    if generate_image_helper(ENV['HOST_NAME']) && image && image.url
+      $twitter.update_with_media(
+        "#{original_word} #{Rails.application.routes.url_helpers.word_definition_url(word, self)}",
+        open(image.url)
+      )
     end
   end
 
