@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20170425163853) do
     t.integer  "likes_counter",       default: 0,                     null: false
     t.integer  "dislikes_counter",    default: 0,                     null: false
     t.string   "original_word"
-    t.datetime "counters_updated_at", default: '2017-04-23 11:45:35'
+    t.datetime "counters_updated_at", default: '2017-04-19 02:07:48'
     t.string   "image"
     t.datetime "image_generated_at"
     t.index ["counters_updated_at"], name: "index_definitions_on_counters_updated_at", using: :btree

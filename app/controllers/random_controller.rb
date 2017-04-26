@@ -12,7 +12,8 @@ class RandomController < ApplicationController
                     .page params[:page]
 
     set_meta_tags title: 'Random word',
-                  description: 'Find random word.'
+                  description: 'Find random word.',
+                  noindex: true
 
     render template: 'words/show'
   end

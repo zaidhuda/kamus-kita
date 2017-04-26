@@ -10,15 +10,12 @@ SitemapGenerator::Sitemap.adapter = SitemapGenerator::WaveAdapter.new
 SitemapGenerator::Sitemap.create do
   add search_path
   add browse_path
-  add random_path
-  add privacy_path
-  add tos_path
-  add remove_path
-  # add help_path
   add vote_path
-  add new_user_registration_path
+  add privacy_path
   Word.find_each do |word|
     add word_path(word), lastmod: word.best_definition.created_at
   end
+  # add tos_path
+  # add help_path
 end
 # SitemapGenerator::Sitemap.ping_search_engines # Not needed if you use the rake tasks
