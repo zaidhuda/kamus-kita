@@ -42,6 +42,7 @@ class Definition < ApplicationRecord
         open(image.url)
       )
     end
+  rescue Twitter::Error::Forbidden
   end
 
   def generate_image host
