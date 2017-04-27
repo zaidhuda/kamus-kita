@@ -9,6 +9,8 @@ module DefinitionsHelper
       new_definition_path(word: params[:id])
     when 'definitions'
       new_definition_path(word: params[:word_id])
+    when 'search'
+      new_definition_path(word: params[:q])
     else
       new_definition_path
     end
