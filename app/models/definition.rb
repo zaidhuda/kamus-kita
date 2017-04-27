@@ -14,7 +14,7 @@ class Definition < ApplicationRecord
   validates_presence_of :user_id, :word_id, :original_word, :definition, :example
   validates_length_of :original_word, maximum: 50
 
-  after_commit :generate_image_and_tweet
+  after_commit :run_image_generator_job
 
   def self.votes
     self.select("user_id, SUM(likes_counter) as likes, SUM(dislikes_counter) as dislikes").group(:user_id)[0]
@@ -29,35 +29,23 @@ class Definition < ApplicationRecord
     self.word = Word.create!(word: original_word)
   end
 
-  def generate_image_helper host
+  def run_image_generator_job
+    GenerateImageJob.perform_async(id)
+  end
+
+  def generate_image_helper
     if updated_at.to_i > image_generated_at.to_i
-      generate_image host
+      generate_image
     end
   end
 
-  def generate_image_and_tweet
-    if generate_image_helper(ENV['HOST_NAME']) && image && image.url
+  def tweet_image
+    if image && image.url
       $twitter.update_with_media(
         "#{original_word} #{Rails.application.routes.url_helpers.word_definition_url(word, self)}",
         open(image.url)
       )
     end
-  rescue Twitter::Error::Forbidden
-  end
-
-  def generate_image host
-    p "GENERATING IMAGE"
-    html = ImageController.new.render_to_string(template: 'image/new',
-      locals: {
-        root_url: host,
-        definition: self
-      })
-    kit = IMGKit.new(html.html_safe, quality: 70)
-    filename = "#{Rails.root.join}/tmp/#{Digest::MD5.hexdigest(updated_at.to_s||created_at.to_s)}.png"
-    temp_file = kit.to_file(filename)
-    self.image = temp_file
-    self.image_generated_at = Time.now
-    self.save
   end
 
   def cleaned_definition
@@ -101,5 +89,21 @@ class Definition < ApplicationRecord
 
   def destroy
     self.update_attribute(:hidden, true)
+  end
+
+  private
+
+  def generate_image
+    html = ImageController.new.render_to_string(template: 'image/new',
+      locals: {
+        root_url: Rails.application.routes.url_helpers.root_url,
+        definition: self
+      })
+    kit = IMGKit.new(html.html_safe, quality: 70)
+    filename = "#{Rails.root.join}/tmp/#{Digest::MD5.hexdigest(updated_at.to_s||created_at.to_s)}.png"
+    temp_file = kit.to_file(filename)
+    self.image = temp_file
+    self.image_generated_at = Time.now
+    self.save
   end
 end

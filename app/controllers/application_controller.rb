@@ -29,10 +29,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def default_url_options(options={})
-    { protocol: 'https' }
-  end
-
   private
 
   def belongings_handover

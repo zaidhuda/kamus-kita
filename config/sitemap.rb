@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'sitemap_generator'
 
-SitemapGenerator::Sitemap.default_host = ENV['HOST_NAME']
+SitemapGenerator::Sitemap.default_host = Rails.application.routes.url_helpers.root_url
 SitemapGenerator::Sitemap.sitemaps_host = ENV['AWS_REMOTE_HOST']
 SitemapGenerator::Sitemap.public_path = 'tmp/'
 SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
