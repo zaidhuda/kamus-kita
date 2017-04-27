@@ -16,6 +16,7 @@ gem 'sucker_punch', '~> 2.0'
 gem 'activeadmin', github: 'activeadmin'
 
 gem 'twitter'
+gem 'rack-tracker'
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'

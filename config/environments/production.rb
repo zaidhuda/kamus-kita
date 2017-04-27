@@ -90,4 +90,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  
+  config.middleware.use(Rack::Tracker) do
+    handler :google_tag_manager, { container: ENV['GOOGLE_TAG_MANAGER_CONTAINER'] }
+  end
 end
