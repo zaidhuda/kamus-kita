@@ -25,6 +25,7 @@
 //= require foundation.util.nest
 //= require nprogress
 //= require nprogress-turbolinks
+//= require local_time
 
 $(document).on('turbolinks:load ready', function() {
   $(document).foundation();

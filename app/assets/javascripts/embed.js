@@ -2,6 +2,7 @@
 //= require clipboard
 //= require snackbar.min
 //= require lightsaber
+//= require local_time
 
 $(function() {
   prepareSnackbarContainer();

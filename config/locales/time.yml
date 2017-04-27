@@ -1,0 +1,6 @@
+en:
+  date:
+    formats:
+      short: '%b %Y'
+      med: '%e %B %Y'
+      long: '%e %A, %B %Y'

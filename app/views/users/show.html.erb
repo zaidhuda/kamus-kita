@@ -5,7 +5,7 @@
       <p>
         <span class="text-color-primary" title="Significant votes plus significant submitted definitions likes"><%= pluralize(@user.points, 'Point') %></span>
         <br/>
-        <span class="text-color-gray">Joined</span> <%= @user.created_at.strftime('%d %B %Y') %>
+        <span class="text-color-gray">Joined</span> <%= local_time @user.created_at, :med %>
         <br/>
         <span class="text-color-gray">Submitted</span> <%= pluralize(@definitions.size, 'definition') %>
       </p>
@@ -27,7 +27,7 @@
       <p>
         <span class="text-color-primary" title="Significant votes plus significant submitted definitions likes"><%= pluralize(@user.points, 'Point') %></span>
         <br/>
-        <span class="text-color-gray">Joined</span> <%= @user.created_at.strftime('%d %B %Y') %>
+        <span class="text-color-gray">Joined</span> <%= local_time @user.created_at, :med %>
         <br/>
         <span class="text-color-gray">Submitted</span> <%= pluralize(@definitions.size, 'definition') %>
       </p>

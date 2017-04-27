@@ -1,7 +1,7 @@
 <% word ||= definition.word %>
 
 <div class="callout definition">
-  <span class="text-color-gray"><%= @definition.created_at.strftime('%d %B %Y') %></span>
+  <span class="text-color-gray"><%= local_time @definition.created_at, :med %></span>
   <h1>
     <span class="text-color-primary"><%= @definition.original_word %></span>
     <%= link_to word_definition_url(@definition.word, @definition), target: :_blank do %>

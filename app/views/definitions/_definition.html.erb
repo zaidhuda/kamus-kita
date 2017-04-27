@@ -1,7 +1,7 @@
 <% word ||= definition.word %>
 
 <div class="callout definition">
-  <%=  link_to definition.created_at.strftime('%d %B %Y'), word_definition_path(word, definition), class: "text-color-gray" %>
+  <%=  link_to local_time(definition.created_at, :med), word_definition_path(word, definition), class: "text-color-gray" %>
   <h1><%= link_to definition.original_word, word_path(word) %></h1>
   <p class='pre-line'><%= parse_linked_words definition.definition %></p>
   <p class='pre-line'><em><%= parse_linked_words definition.example %></em></p>
