@@ -52,8 +52,8 @@ var passwordGen = function() {
 }
 
 var watchNewWord = function() {
-  $('#definition_original_word').on('change', function() {
-    $('#new_word').html($(this).val());
+  $('#new_definition input, #new_definition textarea').on('blur', function() {
+    $('#new_word').html($("#definition_original_word").val());
   })
 }
 
