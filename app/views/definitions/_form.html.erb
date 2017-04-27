@@ -58,17 +58,19 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="large-12 columns">
-      <div class="callout">
-        <% if definition.new_record? %>
+  <% if definition.new_record? %>
+    <div class="row">
+      <div class="large-12 columns">
+        <div class="callout">
           <input type="checkbox" id="word_confirmation" required="true" style="margin: 0"><label for="word_confirmation">Submit definition for <strong id="new_word"></strong></label>
-          <br>
-        <% end %>
-        <input type="checkbox" id="agreement" required="true" style="margin: 0"><label for="agreement">I agree to the <%= link_to 'Privacy Policy', privacy_path, target: :_blank %></label>
+          <% unless current_user %>
+            <br>
+            <input type="checkbox" id="agreement" required="true" style="margin: 0"><label for="agreement">I agree to the <%= link_to 'Privacy Policy', privacy_path, target: :_blank %></label>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 
   <div class="row">
     <div class="large-12 columns">

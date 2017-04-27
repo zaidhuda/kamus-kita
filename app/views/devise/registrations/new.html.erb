@@ -29,6 +29,14 @@
   </div>
 
   <div class="row">
+    <div class="large-12 columns">
+      <div class="callout">
+        <input type="checkbox" id="agreement" required="true" style="margin: 0"><label for="agreement">I agree to the <%= link_to 'Privacy Policy', privacy_path, target: :_blank %></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
     <div class="medium-12 columns">
       <%= f.submit "Sign up", class: 'button' %>
     </div>
