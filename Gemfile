@@ -11,6 +11,7 @@ gem 'puma', '~> 3.0'
 
 gem 'pg'
 gem 'pg_search'
+gem 'sucker_punch', '~> 2.0'
 
 gem 'activeadmin', github: 'activeadmin'
 
