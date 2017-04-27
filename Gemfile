@@ -27,6 +27,7 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'clipboard-rails'
+gem 'local_time'
 
 gem 'devise'
 gem 'mailgun_rails'
