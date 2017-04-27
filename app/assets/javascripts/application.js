@@ -30,6 +30,7 @@
 $(document).on('turbolinks:load ready', function() {
   $(document).foundation();
   passwordGen();
+  watchNewWord();
   prepareSnackbarContainer();
   initShareLinks();
   activateClipboard();
@@ -47,6 +48,12 @@ var passwordGen = function() {
 
   $('#user_password').on('blur', function() {
     $('#user_password').attr({ type: "password" });
+  })
+}
+
+var watchNewWord = function() {
+  $('#definition_original_word').on('change', function() {
+    $('#new_word').html($(this).val());
   })
 }
 
