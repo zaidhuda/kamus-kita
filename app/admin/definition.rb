@@ -1,4 +1,6 @@
 ActiveAdmin.register Definition do
+  permit_params :definition, :example, :hidden, :original_word
+
   index do
     selectable_column
     id_column
@@ -10,5 +12,10 @@ ActiveAdmin.register Definition do
     column :dislikes_counter
     column :hidden
     actions
+  end
+
+  form do |f|
+    f.inputs :original_word, :definition, :example, :hidden
+    f.actions
   end
 end
