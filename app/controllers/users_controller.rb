@@ -13,6 +13,8 @@ class UsersController < ApplicationController
   end
 
   def edit
+    set_meta_tags title: "Edit Profile",
+      noindex: true
   end
 
   def update

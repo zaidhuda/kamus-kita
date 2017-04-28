@@ -5,7 +5,8 @@ class EmbedController < ApplicationController
 
     set_meta_tags title: @definition.original_word,
       description: @definition.cleaned_definition.truncate(160),
-      canonical: word_definition_url(@definition.word, @definition)
+      canonical: word_definition_url(@definition.word, @definition),
+      noindex: true
 
     response.headers.delete "X-Frame-Options"
   end
@@ -22,5 +23,8 @@ class EmbedController < ApplicationController
     end
     @iframe_code = "<iframe src='#{embed_word_definition_url(@word, @definition)}' width='#{params[:width]}' height='307.8' style='border:none;overflow:hidden' scrolling='no' frameborder='0' allowTransparency='true'></iframe>"
   rescue ActiveRecord::RecordNotFound, ActionController::RoutingError
+  ensure
+    set_meta_tags title: "Embed #{@definition.original_word}",
+      noindex: true
   end
 end
