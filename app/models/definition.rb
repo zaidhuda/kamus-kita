@@ -8,10 +8,11 @@ class Definition < ApplicationRecord
   has_many :votes
 
   mount_uploader :image, ImageUploader
-  mount_uploader :banner, ImageUploader
 
   validates_presence_of :user_id, :word_id, :original_word, :definition, :example
   validates_length_of :original_word, maximum: 50
+
+  after_create :run_image_generator_job
 
   def self.votes
     self.select("user_id, SUM(likes_counter) as likes, SUM(dislikes_counter) as dislikes").group(:user_id)[0]
@@ -73,10 +74,6 @@ class Definition < ApplicationRecord
     GenerateImageJob.perform_async(id)
   end
 
-  def run_banner_generator_job
-    GenerateBannerJob.perform_async(id)
-  end
-
   def tweet_image
     if image && image.url
       $twitter.update_with_media(
@@ -97,19 +94,6 @@ class Definition < ApplicationRecord
     temp_file = kit.to_file(filename)
     self.image = temp_file
     self.image_generated_at = Time.now
-    self.save
-  end
-
-  def generate_banner
-    html = ImageController.new.render_to_string(template: 'image/banner',
-      locals: {
-        root_url: Rails.application.routes.url_helpers.root_url,
-        definition: self
-      })
-    kit = IMGKit.new(html.html_safe, quality: 70)
-    filename = "#{Rails.root.join}/tmp/#{Digest::MD5.hexdigest(original_word)}.png"
-    temp_file = kit.to_file(filename)
-    self.banner = temp_file
     self.save
   end
 end

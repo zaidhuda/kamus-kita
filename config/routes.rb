@@ -30,6 +30,12 @@ Rails.application.routes.draw do
   end
 
   resources :words, path: :w, only: [:index, :show] do
+    member do
+      scope :image do
+        get :banner_preview, to: 'image#banner'
+        get :banner, to: 'image#banner_image'
+      end
+    end
     resources :definitions, path: :def, only: [:show] do
       member do
         get 'embed', to: 'embed#show'
@@ -37,8 +43,6 @@ Rails.application.routes.draw do
         scope :image do
           get :full_preview, to: 'image#full'
           get :full, to: 'image#full_image'
-          get :banner_preview, to: 'image#banner'
-          get :banner, to: 'image#banner_image'
         end
       end
     end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170502150444) do
+ActiveRecord::Schema.define(version: 20170502155712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,7 +66,6 @@ ActiveRecord::Schema.define(version: 20170502150444) do
     t.datetime "counters_updated_at", default: '2017-04-23 11:45:35'
     t.string   "image"
     t.datetime "image_generated_at"
-    t.string   "banner"
     t.index ["counters_updated_at"], name: "index_definitions_on_counters_updated_at", using: :btree
     t.index ["hidden"], name: "index_definitions_on_hidden", using: :btree
     t.index ["user_id"], name: "index_definitions_on_user_id", using: :btree
@@ -115,6 +114,7 @@ ActiveRecord::Schema.define(version: 20170502150444) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.boolean  "hidden",     default: false
+    t.string   "banner"
     t.index ["hidden"], name: "index_words_on_hidden", using: :btree
     t.index ["slug"], name: "index_words_on_slug", using: :btree
     t.index ["word"], name: "index_words_on_word", using: :btree
