@@ -17,7 +17,8 @@ module ApplicationHelper
         image:    "#{root_url}logo-small.png"
       },
       twitter: {
-        card: 'summary',
+        card: 'summary_large_image',
+        site: '@twtkamuskita'
         title: :title,
         description: :description,
         image: { _: "#{root_url}logo-small.png" }
