@@ -4,7 +4,7 @@ class Word < ApplicationRecord
   has_many :definitions
   has_one :best_definition, -> { order(likes_counter: :desc).limit(1) }, class_name: 'Definition'
   
-  mount_uploader :banner, ImageUploader
+  mount_uploader :banner, BannerUploader
 
   validates_presence_of :word
   validates_length_of :word, maximum: 50
@@ -30,7 +30,7 @@ class Word < ApplicationRecord
         word: self
       })
     kit = IMGKit.new(html.html_safe, quality: 70)
-    filename = "#{Rails.root.join}/tmp/#{Digest::MD5.hexdigest(original_word)}.png"
+    filename = "#{Rails.root.join}/tmp/#{Digest::MD5.hexdigest(word)}.png"
     temp_file = kit.to_file(filename)
     self.banner = temp_file
     self.save

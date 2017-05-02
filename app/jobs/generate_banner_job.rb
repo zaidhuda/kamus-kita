@@ -1,10 +1,10 @@
 class GenerateBannerJob 
   include SuckerPunch::Job
   
-  def perform(definition_id)
+  def perform(word_id)
     ActiveRecord::Base.connection_pool.with_connection do
-      definition = Definition.find(definition_id)
-      definition.generate_banner
+      word = Word.find(word_id)
+      word.generate_banner
     end
   end
 end

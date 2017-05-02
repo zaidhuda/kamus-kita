@@ -1,4 +1,4 @@
-<% definition ||= @definition %>
+<% word ||= @word %>
 <!DOCTYPE html>
 <html lang="ms">
   <head>
@@ -40,7 +40,7 @@
 
   <body>
     <div id="title">
-      <span><%= definition.original_word.truncate(50, separator: /\s/, omission: '') %></span>
+      <span><%= word.word.truncate(50, separator: /\s/, omission: '') %></span>
     </div>
 
     <footer>

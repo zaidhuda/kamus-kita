@@ -31,10 +31,8 @@ Rails.application.routes.draw do
 
   resources :words, path: :w, only: [:index, :show] do
     member do
-      scope :image do
-        get :banner_preview, to: 'image#banner'
-        get :banner, to: 'image#banner_image'
-      end
+      get :banner_preview, to: 'image#banner'
+      get :banner, to: 'image#banner_image'
     end
     resources :definitions, path: :def, only: [:show] do
       member do
