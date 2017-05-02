@@ -18,7 +18,7 @@ module ApplicationHelper
       },
       twitter: {
         card: 'summary_large_image',
-        site: '@twtkamuskita'
+        site: '@twtkamuskita',
         title: :title,
         description: :description,
         image: { _: "#{root_url}logo-small.png" }
