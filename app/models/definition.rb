@@ -91,8 +91,6 @@ class Definition < ApplicationRecord
     self.update_attribute(:hidden, true)
   end
 
-  private
-
   def generate_image
     html = ImageController.new.render_to_string(template: 'image/new',
       locals: {
