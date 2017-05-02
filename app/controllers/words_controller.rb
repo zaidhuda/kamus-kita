@@ -20,6 +20,7 @@ class WordsController < ApplicationController
 
     set_meta_tags title: params[:id],
       canonical: new_definition_url(word: params[:id]),
-      description: "There is no definition for #{params[:id]}. Submit yours?"
+      description: "There is no definition for #{params[:id]}. Submit yours?",
+      noindex: true
   end
 end
