@@ -11,6 +11,11 @@ class Word < ApplicationRecord
 
   after_create :run_banner_generator_job
 
+  def word
+    run_banner_generator_job
+    super
+  end
+
   def destroy
     self.update_attribute(:hidden, true)
   end
