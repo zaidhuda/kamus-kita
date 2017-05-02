@@ -1,0 +1,50 @@
+<% definition ||= @definition %>
+<!DOCTYPE html>
+<html lang="ms">
+  <head>
+    <meta name="robots" content="noindex" />
+    <% ActionController::Base.asset_host = root_url %>
+    <style>
+      body {
+        margin: 0;
+        position: relative;
+        width: 1024px;
+      }
+
+      #title {
+        width: 824px;
+        height: 318px;
+        padding: 100px;
+        padding-bottom: 120px;
+        color: #f57c00;
+        line-height: 1;
+        margin-top: -50px;
+        text-align: center;
+        font-family: 'Roboto Slab', serif;
+        font-weight: 400;
+        background-color: #37474f;
+        display: table-cell;
+        vertical-align: middle;
+      }
+      footer {
+        position: absolute;
+        bottom: 24px;
+        right: 24px;
+      }
+      footer img {
+        width: 56px;
+      }
+    </style>
+    <%= javascript_include_tag javascript_url 'image' %>
+  </head>
+
+  <body>
+    <div id="title">
+      <span><%= definition.original_word.truncate(50, separator: /\s/, omission: '') %></span>
+    </div>
+
+    <footer>
+      <img src="<%= root_url %>logo-alt-light-small.png"/>
+    </footer>
+  </body>
+</html>

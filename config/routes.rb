@@ -34,8 +34,12 @@ Rails.application.routes.draw do
       member do
         get 'embed', to: 'embed#show'
         get 'embed_settings', to: 'embed#embed_settings'
-        get :image_preview, to: 'image#new'
-        get :image, to: 'image#show'
+        scope :image do
+          get :full_preview, to: 'image#full'
+          get :full, to: 'image#full_image'
+          get :banner_preview, to: 'image#banner'
+          get :banner, to: 'image#banner_image'
+        end
       end
     end
   end

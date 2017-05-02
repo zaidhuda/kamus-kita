@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170425163853) do
+ActiveRecord::Schema.define(version: 20170502150444) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,9 +63,10 @@ ActiveRecord::Schema.define(version: 20170425163853) do
     t.integer  "likes_counter",       default: 0,                     null: false
     t.integer  "dislikes_counter",    default: 0,                     null: false
     t.string   "original_word"
-    t.datetime "counters_updated_at", default: '2017-04-19 02:07:48'
+    t.datetime "counters_updated_at", default: '2017-04-23 11:45:35'
     t.string   "image"
     t.datetime "image_generated_at"
+    t.string   "banner"
     t.index ["counters_updated_at"], name: "index_definitions_on_counters_updated_at", using: :btree
     t.index ["hidden"], name: "index_definitions_on_hidden", using: :btree
     t.index ["user_id"], name: "index_definitions_on_user_id", using: :btree
@@ -90,6 +91,8 @@ ActiveRecord::Schema.define(version: 20170425163853) do
     t.string   "handle"
     t.citext   "slug"
     t.boolean  "guest"
+    t.string   "api_key"
+    t.index ["api_key"], name: "index_users_on_api_key", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["slug"], name: "index_users_on_slug", using: :btree
