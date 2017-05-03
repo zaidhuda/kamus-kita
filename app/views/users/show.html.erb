@@ -1,15 +1,6 @@
 <div class="row">
   <div class="columns medium-8 ">
-    <div class="callout show-for-small-only">
-      <h5><%= @user.handle %></h5>
-      <p>
-        <span class="text-color-primary" title="Significant votes plus significant submitted definitions likes"><%= pluralize(@user.points, 'Point') %></span>
-        <br/>
-        <span class="text-color-gray">Joined</span> <%= local_time @user.created_at, :med %>
-        <br/>
-        <span class="text-color-gray">Submitted</span> <%= pluralize(@definitions.size, 'definition') %>
-      </p>
-    </div>
+    <div class="show-for-small-only"><%= render @user %></div>
 
     <% if @definitions.present? %>
       <% @definitions.each do |definition| %>
@@ -22,17 +13,7 @@
   </div>
 
   <div class="columns medium-4">
-    <div class="callout show-for-medium">
-      <h5><%= @user.handle %></h5>
-      <p>
-        <span class="text-color-primary" title="Significant votes plus significant submitted definitions likes"><%= pluralize(@user.points, 'Point') %></span>
-        <br/>
-        <span class="text-color-gray">Joined</span> <%= local_time @user.created_at, :med %>
-        <br/>
-        <span class="text-color-gray">Submitted</span> <%= pluralize(@definitions.size, 'definition') %>
-      </p>
-    </div>
-
-    <%= render partial: 'layouts/partials/sidebar' %>
+    <% provide :sidebar, (render 'sidebar', user: @user) %>
+    <%= render 'layouts/partials/sidebar', hide_add_button: true %>
   </div>
 </div>
