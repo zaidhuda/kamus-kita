@@ -35,6 +35,7 @@ gem 'mailgun_rails'
 
 gem 'friendly_id'
 gem 'kaminari'
+gem 'acts-as-taggable-on', '~> 4.0'
 gem 'meta-tags'
 gem 'sitemap_generator'
 

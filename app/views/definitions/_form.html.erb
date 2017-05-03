@@ -1,11 +1,12 @@
 <% unless current_user.present? %>
   <div class="callout secondary">
     <h6>
-      Adding definiton as a <strong>guest</strong>, if you
+      Adding definiton as a <strong>guest</strong>. You will not be able to edit this definition!<br>
+      If you
       <%= link_to 'login', new_user_session_path %>
       or
       <%= link_to 'sign up', new_user_registration_path %>
-      before the session is over, definition ownership will be granted to you.
+      before the session is over, you will own the definition.
     </h6>
   </div>
 <% end %>
@@ -38,7 +39,7 @@
     <div class="large-12 columns">
       <div class="callout">
         <p>
-          Enclose words in definition and example within <code>[</code> <code>]</code> to link to other words, even if it is not yet present in the database.
+          Enclose words within <code>[</code> <code>]</code> for automatic definition linking.
         </p>
       </div>
     </div>
@@ -55,6 +56,13 @@
     <div class="large-12 columns">
       <%= f.label :example %>
       <%= f.text_area :example, rows: 5, required: true %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Tags (comma separated)</label>
+      <%= f.text_field :tag_list, autocomplete: :off %>
     </div>
   </div>
 

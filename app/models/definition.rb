@@ -1,6 +1,7 @@
 class Definition < ApplicationRecord
+  acts_as_taggable
   include PgSearch
-  pg_search_scope :search_for, against: [:original_word, :definition],
+  pg_search_scope :search_for, against: [:original_word, :definition, :tags],
     using: {trigram: { only: :original_word }, tsearch: { any_word: true }}
 
   belongs_to :user
@@ -9,6 +10,8 @@ class Definition < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
+  before_validation :find_or_create_word
+
   validates_presence_of :user_id, :word_id, :original_word, :definition, :example
   validates_length_of :original_word, maximum: 50
 
@@ -16,6 +19,10 @@ class Definition < ApplicationRecord
 
   def self.votes
     self.select("user_id, SUM(likes_counter) as likes, SUM(dislikes_counter) as dislikes").group(:user_id)[0]
+  end
+
+  def related_words
+    Word.where(id: find_related_tags.map(&:word_id)).order(:word).limit(15).pluck(:word)
   end
 
   def find_or_create_word

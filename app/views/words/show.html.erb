@@ -7,12 +7,12 @@
         <%= render 'definitions/definition', definition: definition, word: @word %>
       <% end %>
       <%= paginate @definitions %>
+      <% provide :sidebar, (render 'related_words', words: @word.best_definition.related_words) %>
     <% end %>
 
     <%= render partial: 'layouts/partials/randomizer' %>
   </div>
 
-  <% provide :sidebar, (render partial: 'related_words') %>
 
   <div class="medium-4 columns">
     <%= render partial: 'layouts/partials/sidebar' %>
