@@ -42,6 +42,6 @@ class Word < ApplicationRecord
     filename = "#{Rails.root.join}/tmp/#{Digest::MD5.hexdigest(word)}.png"
     temp_file = kit.to_file(filename)
     self.banner = temp_file
-    tweet_banner if self.save
+    TweetBannerJob.perform_async(id) if self.save
   end
 end
