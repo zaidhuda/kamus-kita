@@ -23,6 +23,15 @@ class Word < ApplicationRecord
     GenerateBannerJob.perform_async(id)
   end
 
+  def tweet_banner
+    if banner && banner.url
+      $twitter.update_with_media(
+        "#{word} #{Rails.application.routes.url_helpers.word_url(self)}",
+        open(banner.url)
+      )
+    end
+  end
+
   def generate_banner
     html = ImageController.new.render_to_string(template: 'image/banner',
       locals: {
@@ -33,6 +42,6 @@ class Word < ApplicationRecord
     filename = "#{Rails.root.join}/tmp/#{Digest::MD5.hexdigest(word)}.png"
     temp_file = kit.to_file(filename)
     self.banner = temp_file
-    self.save
+    tweet_banner if self.save
   end
 end
