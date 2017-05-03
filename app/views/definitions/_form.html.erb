@@ -62,7 +62,7 @@
   <div class="row">
     <div class="large-12 columns">
       <label>Tags (comma separated)</label>
-      <%= f.text_field :tag_list, autocomplete: :off %>
+      <%= f.text_field :tag_list, value: definition.tag_list.join(', '), autocomplete: :off %>
     </div>
   </div>
 
