@@ -22,6 +22,8 @@ class ImageController < ApplicationController
     open_image open(@word.banner.url), "#{@word.word}-banner"
   rescue OpenURI::HTTPError, Errno::ENOENT
     if @word.run_banner_generator_job
+      return render plain: 'Image not ready. Try again later.'
+    else
       logo
     end
   end
