@@ -8,4 +8,10 @@ class Vote < ApplicationRecord
   scope :dislikes, -> { where(like: false) }
   scope :ignores, -> { where(like: nil) }
   scope :significant, -> { where.not(like: nil) }
+
+  after_commit :update_definition_counters
+
+  def update_definition_counters
+    definition.update_counters
+  end
 end

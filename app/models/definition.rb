@@ -55,20 +55,20 @@ class Definition < ApplicationRecord
     vote.update_attribute(:like, nil)
   end
 
-  after_find do |definition|
-    update_counters if should_update_counters?
-  end
+  # after_find do |definition|
+  #   update_counters if should_update_counters?
+  # end
 
-  def should_update_counters?
-    counters_updated_at < 1.hour.ago
-  rescue ActiveModel::MissingAttributeError
-    false
-  end
+  # def should_update_counters?
+  #   counters_updated_at < 1.hour.ago
+  # rescue ActiveModel::MissingAttributeError
+  #   false
+  # end
 
   def update_counters
     update_columns(
-            likes_counter: votes.where(like: true).size,
-         dislikes_counter: votes.where(like: false).size,
+            likes_counter: votes.where(like: true).ids.size,
+         dislikes_counter: votes.where(like: false).ids.size,
       counters_updated_at: Time.now
     )
   end
