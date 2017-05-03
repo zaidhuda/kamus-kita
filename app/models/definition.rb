@@ -22,7 +22,7 @@ class Definition < ApplicationRecord
   end
 
   def related_words
-    Word.where(id: find_related_tags.map(&:word_id)).order(:word).limit(15).pluck(:word)
+    Word.where(id: find_related_tags.map(&:word_id)).order(:word).limit(15)
   end
 
   def find_or_create_word
