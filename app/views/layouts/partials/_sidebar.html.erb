@@ -1,9 +1,14 @@
-<footer>
+<% unless defined?(hide_add_btn) %>
   <div class="row">
     <div class="columns small-12">
       <%= link_to 'Add definition', new_definition_path, class: 'button jumbo' %>
     </div>
   </div>
+<% end %>
+
+<%= yield :sidebar %>
+
+<footer>
 	<div class="row">
     <div class="columns small-12">
       <div class="expanded button-group">
