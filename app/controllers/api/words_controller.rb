@@ -5,7 +5,7 @@ class Api::WordsController < Api::BaseController
   end
 
   def show
-    word = Word.includes(:best_definition).friendly.find(params[:id])
+    word = Word.includes(:best_definition).friendly.find(params[:id].parameterize)
     definitions = Definition.where(word_id: word.id)
                     .includes(:user, :word)
                     .order(likes_counter: :desc, created_at: :desc)
