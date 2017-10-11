@@ -11,7 +11,7 @@
 
     var baseUrl = "<%= Rails.application.routes.url_helpers.root_url %>"
     var definitionUrl = function(word) {
-      return baseUrl + "/api/words/" + word + "/best-definition"
+      return baseUrl + "api/words/" + word + "/best-definition"
     }
 
     $('.kamuskita-popup').remove();
@@ -52,7 +52,7 @@
                   self.popup.append(
                     $("<a>", {
                       class: 'definition-title',
-                      href: baseUrl+"/"+self.definition.original_word,
+                      href: baseUrl+self.definition.original_word,
                       html: self.definition.original_word
                     })
                   )
