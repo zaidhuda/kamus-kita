@@ -4,7 +4,7 @@ class WordsController < ApplicationController
   end
 
   def show
-    @word = Word.includes(:best_definition).friendly.find(params[:id])
+    @word = Word.includes(:best_definition).friendly.find(params[:id].parameterize)
 
     set_meta_tags title: @word.word,
       canonical: word_url(params[:id]),
