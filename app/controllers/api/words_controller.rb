@@ -14,7 +14,7 @@ class Api::WordsController < Api::BaseController
   end
 
   def best_definition
-    definition = Word.includes(:best_definition).friendly.find(params[:id]).best_definition
+    definition = Word.includes(:best_definition).friendly.find(params[:id].parameterize).best_definition
     render json: definition.as_json(only: [:id, :original_word, :definition, :example])
   end
 
