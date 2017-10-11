@@ -9,7 +9,7 @@
       color: preferences.color || 'inherit',
     }
 
-    var baseUrl = "http://localhost:3000"
+    var baseUrl = "https://kamuskita.my"
     var definitionUrl = function(word) {
       return baseUrl + "/api/words/" + word + "/best-definition"
     }
