@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20170503062623) do
     t.integer  "likes_counter",       default: 0,                     null: false
     t.integer  "dislikes_counter",    default: 0,                     null: false
     t.string   "original_word"
-    t.datetime "counters_updated_at", default: '2017-04-23 11:45:35'
+    t.datetime "counters_updated_at", default: '2017-05-04 10:33:25'
     t.string   "image"
     t.datetime "image_generated_at"
     t.string   "tags"
@@ -116,8 +116,6 @@ ActiveRecord::Schema.define(version: 20170503062623) do
     t.string   "handle"
     t.citext   "slug"
     t.boolean  "guest"
-    t.string   "api_key"
-    t.index ["api_key"], name: "index_users_on_api_key", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["slug"], name: "index_users_on_slug", using: :btree
