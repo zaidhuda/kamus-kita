@@ -1,2 +1,80 @@
 <h1>Embed</h1>
-<p>You can link words to KamusKita by adding a `kamuskita` class to any tag.</p>
+<p>You can hook words to <span class="kamuskita"><strong>Kamus</strong>Kita</span>. The lookup will only be done once and only if needed to make sure there is no performance overhead while loading the page.</p>
+
+<h3>Usage</h3>
+<p>
+  Include the javascript file and stylesheet and call <code>KamusKita</code> jQuery function.
+  <div class="callout">
+    <pre>&lt;link rel=&quot;stylesheet&quot; href=&quot;<%= root_url %>kamuskita.css&quot; /&gt;
+&lt;script src=&quot;<%= root_url %>kamuskita.js&quot;&gt;&lt;/script&gt;</pre>
+  </div>
+</p>
+<p>
+  Example:
+  <div class="callout">
+    <pre>&lt;p&gt;You can hook words to &lt;span class=&quot;kamuskita&quot;&gt;&lt;strong&gt;Kamus&lt;/strong&gt;Kita&lt;/span&gt;.&lt;/p&gt;
+&lt;script&gt;
+  $('.kamuskita').KamusKita({
+    theme: 'dark',
+    color: '#f57c00'
+  });
+&lt;/script&gt;</pre>
+  </div>
+</p>
+
+<script>
+  $('.kamuskita').KamusKita({
+    theme: 'dark',
+    color: '#f57c00'
+  });
+</script>
+
+<h3>Options</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>theme</td>
+      <td>string</td>
+      <td>Color theme. <i>light</i> or <i>dark</i></td>
+      <td>light</td>
+    </tr>
+    <tr>
+      <td>hideWord</td>
+      <td>boolean</td>
+      <td>Hide the word</td>
+      <td><i>false</i></td>
+    </tr>
+    <tr>
+      <td>link</td>
+      <td>boolean</td>
+      <td>Word will be a link to <strong>Kamus</strong>Kita. Meaningless if <i>hideWord</i> is <i>true</i>.</td>
+      <td><i>true</i></td>
+    </tr>
+    <tr>
+      <td>missingDefinition</td>
+      <td>string</td>
+      <td>Definition shown if word is not found</td>
+      <td>No entry found for this word.</td>
+    </tr>
+    <tr>
+      <td>loading</td>
+      <td>string</td>
+      <td>What to display while loading the definition</td>
+      <td>Loading...</td>
+    </tr>
+    <tr>
+      <td>color</td>
+      <td>color</td>
+      <td>Color of the word in page</td>
+      <td>inherit</td>
+    </tr>
+  </tbody>
+</table>
