@@ -32,6 +32,13 @@ Rails.application.routes.draw do
     post '/ignore/:id', to: 'votes#ignore', as: :ignore
   end
 
+  namespace :api do
+    resources :definitions
+    resources :words do
+      get 'best-definition', on: :member
+    end
+  end
+
   resources :words, path: :w, only: [:index, :show] do
     member do
       get :banner_preview, to: 'image#banner'
