@@ -26,6 +26,7 @@
 //= require nprogress
 //= require nprogress-turbolinks
 //= require local_time
+//= require kamuskita
 
 $(document).on('turbolinks:load ready', function() {
   $(document).foundation();
@@ -35,6 +36,10 @@ $(document).on('turbolinks:load ready', function() {
   initShareLinks();
   activateClipboard();
   $('.lightsabers').lightsaber();
+  $('.kamuskita').KamusKita({
+    theme: 'dark',
+    color: '#f57c00'
+  });
 });
 
 var passwordGen = function() {

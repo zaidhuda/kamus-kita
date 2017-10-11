@@ -20,7 +20,8 @@ module DefinitionsHelper
     definition.gsub(/\[.*?\]/){ |s|
       word = s[1..s.size-2] if s.size > 2
       if word
-        link_to word, word_path(id: word.parameterize), link_options
+        # link_to word, word_path(id: word.parameterize), link_options
+        content_tag(:span, word, class: 'kamuskita')
       end
     }.html_safe
   end

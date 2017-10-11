@@ -1,0 +1,44 @@
+div.kamuskita-popup {
+  all: initial;
+  font: inherit;
+  width: 300px;
+  max-height: 160px;
+  overflow: hidden;
+  position: absolute;
+  padding: 1rem;
+  border-radius: 0;
+  z-index: 1000;
+}
+
+div.kamuskita-popup > * {
+  all: unset;
+}
+
+div.kamuskita-popup > p.definition-details {
+  font: inherit;
+  display: none;
+  margin-bottom: 0.48em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-height: 4.32em;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+div.kamuskita-popup > .definition-title {
+  font-weight: bold;
+  color: #f57c00;
+}
+
+div.kamuskita-popup.light {
+  border: 1px solid rgba(33, 33, 33, 0.25);
+  background-color: #fefefe;
+  color: #212121;
+}
+
+div.kamuskita-popup.dark {
+  border: 1px solid rgba(33, 33, 33, 0.25);
+  background-color: #37474f;
+  color: #fefefe;
+}
