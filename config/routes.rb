@@ -21,12 +21,22 @@ Rails.application.routes.draw do
   get 'tos', to: 'legal#tos'
   get 'remove', to: 'legal#remove'
   get 'help', to: 'legal#help'
+  get 'developer', to: 'developer#index'
+  get 'api', to: 'developer#api', as: :developer_api
+  get 'embed', to: 'developer#embed', as: :developer_embed
 
   scope :vote, as: :vote do
     get '/', to: 'votes#index'
     post '/like/:id', to: 'votes#like', as: :like
     post '/dislike/:id', to: 'votes#dislike', as: :dislike
     post '/ignore/:id', to: 'votes#ignore', as: :ignore
+  end
+
+  namespace :api do
+    resources :definitions
+    resources :words do
+      get 'best-definition', on: :member
+    end
   end
 
   resources :words, path: :w, only: [:index, :show] do

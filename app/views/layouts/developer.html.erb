@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ms">
+  <head>
+    <%= display_meta_tags(default_meta_tags) %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= render 'layouts/partials/favicons' %>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', async: Rails.env.production? %>
+    <%= javascript_include_tag 'fonts', 'data-turbolinks-track': 'reload', async: true %>
+    <script src="kamuskita.js"></script>
+    <link rel="stylesheet" media="all" href="kamuskita.css" data-turbolinks-track="reload" />
+  </head>
+
+  <body>
+    <%= render 'layouts/partials/header_developer' %>
+    <main>
+      <%= render 'layouts/partials/notice' %>
+      <div class="row">
+        <div class="medium-10 columns">
+          <%= yield %>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
