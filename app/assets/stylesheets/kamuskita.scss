@@ -1,6 +1,7 @@
 div.kamuskita-popup {
   all: initial;
-  font: inherit;
+  font-family: inherit;
+  font-size: inherit;
   width: 300px;
   max-height: 160px;
   overflow: hidden;
@@ -15,9 +16,9 @@ div.kamuskita-popup > * {
 }
 
 div.kamuskita-popup > p.definition-details {
-  font: inherit;
+  font-family: inherit;
+  font-size: inherit;
   display: none;
-  margin-bottom: 0.48em;
   text-overflow: ellipsis;
   overflow: hidden;
   max-height: 4.32em;
