@@ -9,7 +9,7 @@ class Word < ApplicationRecord
   validates_presence_of :word
   validates_length_of :word, maximum: 50
 
-  after_create :run_banner_generator_job
+  after_create :tweet_banner
 
   def destroy
     self.update_attribute(:hidden, true)
@@ -24,12 +24,7 @@ class Word < ApplicationRecord
   end
 
   def tweet_banner
-    if banner && banner.url
-      $twitter.update_with_media(
-        "#{word} #{Rails.application.routes.url_helpers.word_url(self)}",
-        open(banner.url)
-      )
-    end
+    $twitter.update "#{word} #kamuskita #{Rails.application.routes.url_helpers.word_url(self)}"
   end
 
   def generate_banner
