@@ -15,7 +15,7 @@ class Definition < ApplicationRecord
   validates_presence_of :user_id, :word_id, :original_word, :definition, :example
   validates_length_of :original_word, maximum: 50
 
-  after_create :run_image_generator_job
+  # after_create :run_image_generator_job
 
   def self.votes
     self.select("user_id, SUM(likes_counter) as likes, SUM(dislikes_counter) as dislikes").group(:user_id)[0]
@@ -91,12 +91,7 @@ class Definition < ApplicationRecord
   end
 
   def generate_image
-    html = ImageController.new.render_to_string(template: 'image/full',
-      locals: {
-        root_url: Rails.application.routes.url_helpers.root_url,
-        definition: self
-      })
-    kit = IMGKit.new(html.html_safe, quality: 70)
+    kit = IMGKit.new(Rails.application.routes.url_helpers.image_template_word_definition_url(word, self), quality: 70)
     filename = "#{Rails.root.join}/tmp/#{Digest::MD5.hexdigest(definition)}.png"
     temp_file = kit.to_file(filename)
     self.image = temp_file

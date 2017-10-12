@@ -9,9 +9,9 @@ class WordsController < ApplicationController
     set_meta_tags title: @word.word,
       canonical: word_url(params[:id]),
       description: @word.best_definition.cleaned_definition.truncate(160),
-      image: banner_word_url(params[:id], format: :png),
-      og: { image: banner_word_url(params[:id], format: :png) },
-      twitter: {image: { _: banner_word_url(params[:id], format: :png) }}
+      image: banner_word_url(params[:id]),
+      og: { image: banner_word_url(params[:id]) },
+      twitter: {image: { _: banner_word_url(params[:id]) }}
 
     @definitions = Definition.where(word_id: @word.id)
                     .includes(:user, :word)

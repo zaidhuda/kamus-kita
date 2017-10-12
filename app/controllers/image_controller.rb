@@ -1,36 +1,30 @@
 class ImageController < ApplicationController
   layout false
 
-  def full_image
+  def image
     @definition = Definition.find(params[:id])
+    @definition.run_image_generator_job if @definition.image.file.nil?
     open_image open(@definition.image.url), "#{@definition.original_word.downcase.parameterize}-definition"
   rescue OpenURI::HTTPError, Errno::ENOENT
-    if @definition.run_image_generator_job
-      return render plain: 'Image not ready. Try again later.'
-    else
-      logo
-    end
+    render template: 'image/full'
   end
 
-  def full
+  def image_template
     @definition = Definition.find(params[:id])
-    render_to_string 'image/full'
-  end
-
-  def banner_image
-    @word = Word.friendly.find(params[:id])
-    open_image open(@word.banner.url), "#{@word.word}-banner"
-  rescue OpenURI::HTTPError, Errno::ENOENT
-    if @word.run_banner_generator_job
-      return render plain: 'Image not ready. Try again later.'
-    else
-      logo
-    end
+    render template: 'image/full'
   end
 
   def banner
-    @definition = Word.friendly.find(params[:id])
-    render_to_string 'image/full'
+    @word = Word.friendly.find(params[:id])
+    @word.run_banner_generator_job if @word.banner.file.nil?
+    open_image open(@word.banner.url), "#{@word.word}-banner"
+  rescue OpenURI::HTTPError, Errno::ENOENT
+    render template: 'image/banner'
+  end
+
+  def banner_template
+    @word = Word.friendly.find(params[:id])
+    render template: 'image/banner'
   end
 
   private

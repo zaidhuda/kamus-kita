@@ -41,17 +41,15 @@ Rails.application.routes.draw do
 
   resources :words, path: :w, only: [:index, :show] do
     member do
-      get :banner_preview, to: 'image#banner'
-      get :banner, to: 'image#banner_image'
+      get :banner_template, to: 'image#banner_template'
+      get :banner, to: 'image#banner'
     end
     resources :definitions, path: :def, only: [:show] do
       member do
         get 'embed', to: 'embed#show'
         get 'embed_settings', to: 'embed#embed_settings'
-        scope :image do
-          get :full_preview, to: 'image#full'
-          get :full, to: 'image#full_image'
-        end
+        get :image_template, to: 'image#image_template'
+        get :image, to: 'image#image'
       end
     end
   end

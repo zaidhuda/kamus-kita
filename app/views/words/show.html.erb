@@ -3,6 +3,8 @@
     <% if @word_not_found %>
       <h4>No record for <code><%= params[:id] %></code>, <%= link_to 'add definition', new_word_definition_path %></h4>
     <% else %>
+      <%= image_tag banner_word_path(@word), style: 'display: none' %>
+
       <% @definitions.each do |definition| %>
         <%= render 'definitions/definition', definition: definition, word: @word %>
       <% end %>
