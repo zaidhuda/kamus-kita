@@ -8,9 +8,9 @@ class DefinitionsController < ApplicationController
 
     set_meta_tags title: @definition.original_word,
       description: @definition.cleaned_definition.truncate(160),
-      image: banner_word_url(params[:word_id]),
-      og: { image: banner_word_url(params[:word_id]) },
-      twitter: {image: { _: banner_word_url(params[:word_id]) }}
+      image: banner_word_url(params[:word_id], format: :png),
+      og: { image: banner_word_url(params[:word_id], format: :png) },
+      twitter: {image: { _: banner_word_url(params[:word_id], format: :png) }}
   end
 
   def new

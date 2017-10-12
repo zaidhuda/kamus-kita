@@ -15,7 +15,7 @@ class Definition < ApplicationRecord
   validates_presence_of :user_id, :word_id, :original_word, :definition, :example
   validates_length_of :original_word, maximum: 50
 
-  # after_create :run_image_generator_job
+  after_create :run_image_generator_job
 
   def self.votes
     self.select("user_id, SUM(likes_counter) as likes, SUM(dislikes_counter) as dislikes").group(:user_id)[0]

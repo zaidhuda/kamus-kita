@@ -1,4 +1,6 @@
 <div class="row">
+  <%= image_tag banner_word_path(@definition.word), style: 'display: none' %>
+
   <div class="medium-8 columns">
     <% if @definition.user.id == guest_user_id_session %>
       <div class="callout secondary">

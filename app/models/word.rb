@@ -10,6 +10,7 @@ class Word < ApplicationRecord
   validates_length_of :word, maximum: 50
 
   after_create :tweet_banner
+  after_create :run_banner_generator_job
 
   def destroy
     self.update_attribute(:hidden, true)
