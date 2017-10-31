@@ -7,7 +7,7 @@ services:
     ports:
       - '5432:5432'
     volumes:
-      - db:/var/lib/postgresql/data
+      - kamuskita-db:/var/lib/postgresql/data
 
   web:
     build: .
@@ -20,3 +20,6 @@ services:
       - '8000:3000'
     env_file:
       - .env
+
+volumes:
+  kamuskita-db: {}
